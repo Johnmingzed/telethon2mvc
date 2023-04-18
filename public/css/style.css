@@ -1,0 +1,52 @@
+body{
+    color: rgb(50, 49, 49);
+}
+header nav{
+    background-color:#025C64;
+}
+nav ul{
+    list-style-type: none;
+    padding: 0;
+}
+body>header>nav{
+    display: flex;
+    justify-content: space-between;
+}
+.main-menu{
+    display: flex;
+}
+.main-menu a{
+    padding: .6rem 1rem;
+    text-decoration: none;
+    color: #fff;
+}
+li.is-active>a, .main-menu a:hover{
+    background-color: #fff;
+    color:gray;
+}
+.user-menu>li{
+    color: white;
+}
+.user-menu>li>ul{
+    display: none;
+}
+.user-menu>li:hover>ul{
+    display: block;
+}
+td, th, tr, table{
+    border: 1px solid rgb(50, 49, 49);
+    border-collapse: collapse;
+}
+table{
+    width: 100%;
+}
+th, td{
+    text-align: left;
+    padding: .4rem .6rem;
+}
+th{
+    text-align: center;
+}
+footer{
+    background-color: #025C64;
+}
