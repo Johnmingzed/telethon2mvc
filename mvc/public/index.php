@@ -6,10 +6,10 @@ require '../inc/conf.php';
 
 if (isset($_GET['controller'])) {
     switch ($_GET['controller']) {
-        case 'donation':
-        case 'user':
-        case 'partner':
-        case 'stand':
+        case 'collects':
+        case 'users':
+        case 'partners':
+        case 'stands':
             $controller = $_GET['controller'];
             break;
         
@@ -18,7 +18,7 @@ if (isset($_GET['controller'])) {
             break;
     }
 }else {
-    $controller = 'donation';
+    $controller = 'collects';
 }
 
 /*if(!isset($_SESSION['profil'])){
