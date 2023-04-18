@@ -1,6 +1,7 @@
 <?php
 
 require_once ROOT . '/model/collects.model.php';
+require_once ROOT . '/model/stands.model.php';
 
 /**
  * Routage par action

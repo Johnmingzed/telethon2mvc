@@ -1,52 +1,76 @@
-body{
+body {
     color: rgb(50, 49, 49);
 }
-header nav{
-    background-color:#025C64;
+header nav {
+    background-color: #025C64;
 }
-nav ul{
+header .logo {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo h1 {
+    margin-top: 5%;
+    text-align: center;
+}
+header .logo .topcompteur {
+    display: flex-end;
+    background-color: #EECB5E;
+    font-size: 2rem;
+    padding: 10px;
+}
+nav ul {
     list-style-type: none;
     padding: 0;
 }
-body>header>nav{
+body>header>nav {
     display: flex;
     justify-content: space-between;
 }
-.main-menu{
+.main-menu {
     display: flex;
 }
-.main-menu a{
+.main-menu a {
     padding: .6rem 1rem;
     text-decoration: none;
     color: #fff;
 }
-li.is-active>a, .main-menu a:hover{
+li.is-active>a,
+.main-menu a:hover {
     background-color: #fff;
-    color:gray;
+    color: #025C64;
 }
-.user-menu>li{
-    color: white;
+.user-menu {
+    color: #fff;
 }
-.user-menu>li>ul{
+.user-menu>li>ul {
+    color: #fff;
     display: none;
 }
-.user-menu>li:hover>ul{
+.user-menu>li:hover>ul {
+    color: #fff;
     display: block;
 }
-td, th, tr, table{
+td,
+th,
+tr,
+table {
     border: 1px solid rgb(50, 49, 49);
     border-collapse: collapse;
 }
-table{
+table {
     width: 100%;
 }
-th, td{
+th,
+td {
     text-align: left;
     padding: .4rem .6rem;
 }
-th{
+th {
     text-align: center;
 }
-footer{
+footer {
     background-color: #025C64;
 }

@@ -27,7 +27,7 @@ function collects_fetchAll(PDO $pdo){
  * @param integer|null $stand_id
  * @return void
  */
-function collects_add(PDO $pdo, string $collect, int $partner_id = null, int $stand_id = null){
+function collects_add(PDO $pdo, float $collect, int $partner_id = null, int $stand_id = null){
     $sql = 'INSERT INTO collects(collects.collect, collects.partner_id, collects.stand_id) VALUES (:collect, :partner_id, :stand_id)';
 
     $q = $pdo->prepare($sql);

@@ -13,11 +13,10 @@
 
 <body>
     <header>
-        <div>
-            <div><img src="" alt="" width="100%">
-                <h1 class="text-center">Actions Telethon</h1>
-                <div class="topcompteur">44 444 &euro;</div>
-            </div>
+        <div class="logo">
+            <img src="/public/css/img/logo-telethon-babouche.png" alt="" width="20%">
+            <h1 class="">Actions Telethon</h1>
+            <span class="topcompteur">44 444 &euro;</span>
         </div>
 
         <h1 class="title"><?= $title ?></h1>

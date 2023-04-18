@@ -125,8 +125,10 @@ function update_user(PDO $pdo, array $data)
     foreach ($data as $key => $value) {
         $sql .= $key . ' = :' . $key . ', ';
     }
+    $sql = str_replace('id_user = :id_user, ', '', $sql);
     $sql = substr($sql, 0, -2);
     $sql .= ' WHERE id_user = :id';
+    echo $sql;
     $q = $pdo->prepare($sql);
     return $q->execute($data);
 }
