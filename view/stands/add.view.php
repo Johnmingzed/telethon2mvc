@@ -3,7 +3,7 @@
     ob_start();
 ?>
 <main>
-    <form action="index.php?controller=stands&action=confirmation_add" method="post">
+    <form action="index.php?controller=stands&action=add" method="post">
         <fieldset>
             <legend>Formulaire d'ajout d'un stand</legend>
             <div>
@@ -28,7 +28,7 @@
                 <input type="file" id="picture" name="picture" value=""> 
             <div>
                 <label for="note">Commentaire</label>
-                <textarea name="note" id="note" cols="30" rows="10"></textarea> 
+                <textarea name="notes" id="notes" cols="30" rows="10"></textarea> 
             </div>
             <div>
                 <input type="submit" value="Ajouté">

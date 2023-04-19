@@ -22,14 +22,20 @@ if (isset($_GET['id'], $_POST['mail'])) {
             if (update_user($pdo, $_POST)) {
                 $_SESSION['msg'] = [
                     'css' => 'success',
-                    'txt' => 'Votre utilisateur a bien été modifiée.'
+                    'txt' => 'L\'utilisateur ID : ' . $_POST['id_user'] . ' a bien été modifié.'
                 ];
+                // Enregistrement de l'image
+                require_once ROOT . '/model/upload.php';
+                update_user($pdo, [
+                    'id_user' => $_POST['id_user'],
+                    'picture' => $user_picture
+                ]);
             } else {
                 $_SESSION['msg'] = [
                     'css' => 'warning',
                     'txt' => 'Action impossible.'
                 ];
-                header('Location: index.php?controller=users&action=edit&id='.$_GET['id'].'');
+                header('Location: index.php?controller=users&action=edit&id=' . $_GET['id'] . '');
                 exit;
             }
         } else {
@@ -38,7 +44,7 @@ if (isset($_GET['id'], $_POST['mail'])) {
                 'css' => 'success',
                 'txt' => 'Cette adresse est déjà utilisée.'
             ];
-            header('Location: index.php?controller=users&action=edit&id='.$_GET['id'].'');
+            header('Location: index.php?controller=users&action=edit&id=' . $_GET['id'] . '');
             exit;
         }
     } else {
@@ -46,7 +52,7 @@ if (isset($_GET['id'], $_POST['mail'])) {
             'css' => 'warning',
             'txt' => 'Merci de compléter tout les champs.'
         ];
-        header('Location: index.php?controller=users&action=edit&id='.$_GET['id'].'');
+        header('Location: index.php?controller=users&action=edit&id=' . $_GET['id'] . '');
         exit;
     }
 }

@@ -3,6 +3,16 @@
     ob_start();
 ?>
 <main>
+    <?php
+        $image = 'ferrari.jpg';
+        $nameFichier = explode('.', $image);
+        var_dump($nameFichier);
+        $nomfichier = basename(ROOT.'/public/images/user_1.png', '.png');
+        var_dump($nomfichier);
+        
+    ?>
+        <h1><?= $nameFichier[0]; ?></h1>
+        <h1><?= $nomfichier; ?></h1>
     <a href="index.php?controller=stands&action=add">Ajouter</a>
     <table>
         <tr>

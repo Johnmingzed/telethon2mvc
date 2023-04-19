@@ -12,11 +12,17 @@ if (isset($_POST['mail'])) {
         $q->execute([$_POST['mail']]);
         if ($q->fetchColumn() === 0) {
             // Si elle est unique on enregistre l'utilisateur
-            if (add_user($pdo, $_POST['mail'], $_POST['firstname'], $_POST['lastname'], $_POST['is_admin'])) {
+            if ($last_user = add_user($pdo, $_POST['mail'], $_POST['firstname'], $_POST['lastname'], $_POST['is_admin'])) {
                 $_SESSION['msg'] = [
                     'css' => 'success',
-                    'txt' => 'Le nouvel utilisateur a bien été créé.'
+                    'txt' => 'Le nouvel utilisateur a bien été créé sous l\'ID : ' . $last_user . '.'
                 ];
+                // Enregistrement de l'image
+                require_once ROOT . '/model/upload.php';
+                update_user($pdo, [
+                    'id_user' => $last_user,
+                    'picture' => $user_picture
+                ]);
             } else {
                 $_SESSION['msg'] = [
                     'css' => 'warning',

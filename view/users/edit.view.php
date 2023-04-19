@@ -4,13 +4,18 @@ ob_start();
 ?>
 
 <main>
-    <?php if(isset($_SESSION['msg'])) echo '<div class="message">' . $_SESSION['msg']['txt'] . '</div>';
+    <?php if (isset($_SESSION['msg'])) echo '<div class="message">' . $_SESSION['msg']['txt'] . '</div>';
     if ($_GET['id'] == 'new') : ?>
-        <form action="index.php?controller=users&action=add" method="post">
+        <form action="index.php?controller=users&action=add" method="post" enctype="multipart/form-data">
         <?php else : ?>
             <form action="index.php?controller=users&action=update&id=<?= @htmlentities($user['id_user']) ?>" method="post">
             <?php endif; ?>
-
+            <div>
+                <img class="profil_picture" src="../../public/images/<?= $user['picture']; ?>" alt="">
+            </div>
+            <div class="input">
+                <input type="file" id="picture" name="picture" accept="image/png, image/jpeg, image/webp">
+            </div>
             <div class="input">
                 <label for="lastname">Nom : </label>
                 <input type="text" name="lastname" id="lastname" value="<?= @htmlentities($user['lastname']) ?>">

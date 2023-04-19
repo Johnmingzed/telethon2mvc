@@ -4,15 +4,16 @@ ob_start();
 ?>
 
 <main>
-    <a class="btn btn-lg ajouter" href="index.php?controller=partners">Ajouter</a>
+    <a class="btn btn-lg ajouter" href="index.php?controller=partners&action=add">Ajouter</a>
     <table>
-        <?php foreach ($users as $user) : ?>
+        <?php foreach ($partners as $partner) : ?>
             <tr>
-                <td><?= $user['firstname'] . ' ' . @strtoupper($user['lastname']) ?></td>
-                <td><?= $user['mail'] ?></td>
-                <td><?= ($user['is_admin'] === 1) ? 'Admin' : 'Collaborateur' ?></td>
-                <td><a href="index.php?controller=partners<?= $user['id_partner'] ?>"><i class="bi bi-pencil fs-3"></i></a>&nbsp;
-                    <a href="index.php?controller=partners<?= $user['id_partner'] ?>"><i class="bi bi-trash fs-3"></i></a>
+                <td><?= $partner['firstname'] . ' ' . @strtoupper($partner['lastname']) ?></td>
+                <td><?= $partner['mail']?></td>
+                <td><?= $partner['phone']?></td>
+                <td><?= $partner['name']?></td>
+                <td><a href="index.php?controller=partners&action=edit&id=<?= $partner['id_partner'] ?>"><i class="bi bi-pencil fs-3"></i></a>&nbsp;
+                    <a href="index.php?controller=partners&action=delete&id=<?= $partner['id_partner'] ?>"><i class="bi bi-trash fs-3"></i></a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -20,5 +21,4 @@ ob_start();
 </main>
 
 <?php $content = ob_get_clean();
-unset($_SESSION['msg']);
 require ROOT . '/view/template/default.php';

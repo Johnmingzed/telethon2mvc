@@ -133,5 +133,6 @@ function update_user(PDO $pdo, array $data)
     $sql = substr($sql, 0, -2);
     $sql .= ' WHERE id_user = :id_user';
     $q = $pdo->prepare($sql);
-    return $q->execute($data);
+    $q->execute($data);
+    return $data['id_user'];
 }
