@@ -19,15 +19,15 @@ debug(fetch_user_by_id($pdo, 2));
 echo '<br>Test de la fonction users_fetchAll : ';
 debug(users_fetchAll($pdo));
 
-/* echo '<br>Test de la fonction add_user : ';
-if(add_user($pdo, 'toto5@toto.fr', 'Edouard', 'TOTAL')){
-    echo 'Utilisateur ajouté';
+echo '<br>Test de la fonction add_user : ';
+if($user_id = add_user($pdo, 'toto6@toto.fr', 'Edouard', 'TOTAL')){
+    echo 'Utilisateur ' . $user_id . ' ajouté';
 } else {
     echo 'Impossible d\ajouter l\'utilisateur';
-} */
+}
 
 echo '<br>Test de la fonction delete_user : ';
-if(delete_user($pdo, 24)){
+if(delete_user($pdo, $user_id)){
     echo 'Utilisateur effacé';
 } else {
     echo 'Impossible d\'effacer l\'utilisateur';

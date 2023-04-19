@@ -1,15 +1,16 @@
 <?php
-    /*********Probleme de la liste partenaire a regler(quand fonction lié partenaire fait)
-     *********Regler le probleme "ajouter un stand bug la collecte"
-     */
-    $title = 'Liste des collectes';
-    ob_start();
-    require_once ROOT . '/inc/debug.php';
-    //debug($collects);
+
+/*********Probleme de la liste partenaire a regler(quand fonction lié partenaire fait)
+ *********Regler le probleme "ajouter un stand bug la collecte"
+ */
+$title = 'Liste des collectes';
+ob_start();
+//require_once ROOT . '/inc/debug.php';
+//debug(collects_FetchbyId($pdo, 2));
 ?>
 
 <main>
-<section>
+    <section>
         <h3>Ajouter une collecte</h3>
         <form action="index.php?controller=collects&action=add" method="post">
             <div class="fields">
@@ -21,8 +22,8 @@
                     <label for="stand">Stand</label>
                     <select name="stand" id="stand">
                         <option value="">Pas de stand</option>
-                        
-                        <?php foreach($stands as $stand) :?>
+
+                        <?php foreach ($stands as $stand) : ?>
                             <option value="<?= $stand['id_stand'] ?>"><?= $stand['name'] ?></option>
                         <?php endforeach ?>
                     </select>
@@ -31,13 +32,13 @@
                     <label for="partner">Partenaire</label>
                     <select name="partner" id="partner">
                         <option value="">Pas de partenaire</option>
-                        <?php foreach($partners as $partner) :?>
+                        <?php foreach ($partners as $partner) : ?>
                             <option value="<?= $partner['id_partner'] ?>"><?= $partner['name'] ?></option>
                         <?php endforeach ?>
                     </select>
                 </div>
-                
-                
+
+
             </div>
 
             <div class="submit">
@@ -56,14 +57,15 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($collects as $collect): ?>
-            <tr>
-                <td><?= $collect['collect'] ?></td>
-                <td><?= $collect['date'] ?></td>
-                <td><?= $collect['partner_name']?></td>
-                <td><?= $collect['name']?></td>
-                <td><a href="">Modifier</a> - <a href="index.php?controller=collects&action=delete&id=<?= $collect['id_collect']; ?>">Supprimer</a></td>
-            </tr>
+            <?php foreach ($collects as $collect) : ?>
+                <tr>
+                    <td><?= $collect['collect'] ?></td>
+                    <td><?= $collect['date'] ?></td>
+                    <td><?= $collect['partner_name'] ?></td>
+                    <td><?= $collect['name'] ?></td>
+                    <td><a href=""><i class="bi bi-pencil-square fs-3"></i></a> -
+                    <a href="index.php?controller=collects&action=delete&id=<?= $collect['id_collect']; ?>"><i class="bi bi-trash fs-3"></i></a></td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
@@ -71,7 +73,7 @@
 
 <?php
 //require_once ROOT . '/inc/debug.php';
-debug($collect);
+//debug($collect);
 $content = ob_get_clean();
-require ROOT.'/view/template/default.php';
+require ROOT . '/view/template/default.php';
 ?>

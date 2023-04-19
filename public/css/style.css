@@ -1,17 +1,105 @@
-body,html {
-    color: rgb(50, 49, 49);
+/* General */
+body {
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+a {
+    color: #038591;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* Header  */
+
+h2 {
+    margin-top: 2%;
+}
+
 header nav {
+    background-color: #038591;
+    color: #F0F0F0;
+
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+body>header>nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.main-menu {
+    display: flex;
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.main-menu a {
+    color: #F0F0F0;
+}
+
+li.is-active>a,
+.main-menu a:hover {
     background-color: #025C64;
+    color: #F0F0F0;
+    padding: 5px 35px;
 }
-header .topcompteur {
+
+.topcompteur {
+    text-align: center;
     background-color: #EECB5E;
-    font-size: 2rem;
-    padding: 10px;
+    padding: 5px 35px;
 }
-h2{
+
+.topcompteur>p {
+    font-size: 3rem;
+    background-color: #F0F0F0;
+    margin: 0;
+    margin-top: 8px;
+}
+
+/* Main */
+
+main {
+    min-height: 400px;
+    flex-grow: 1;
+}
+
+.page-title {
+    font-family: 'PT Serif', serif;
+    color: #038591;
+    margin: 2%;
+    margin-bottom: 0;
+}
+
+main h2,
+main h3 {
+    font-family: 'PT Serif', serif;
+}
+
+main h3 {
     color: #8CD50A;
 }
+
+main .btn {
+    background-color: #8CD50A;
+    padding: 5px 35px;
+    margin: 2%;
+    margin-bottom: 0;
+}
+
+/* Table */
+
 td,
 th,
 tr,
@@ -19,17 +107,36 @@ table {
     border: 1px solid rgb(50, 49, 49);
     border-collapse: collapse;
 }
+
 table {
     width: 100%;
+    margin: 2%;
 }
+
 th,
 td {
     text-align: left;
     padding: .4rem .6rem;
 }
+
 th {
     text-align: center;
+    color: #2B1C1A;
 }
+
+/* Footer */
+
 footer {
-    background-color: #025C64;
+    background-color: #038591;
+    color: #F0F0F0;
+    padding: 1rem 2rem;
+}
+
+footer a {
+    color: #F0F0F0;
+    margin-right: 1rem;
+}
+
+footer a:last-child {
+    margin-right: 0;
 }

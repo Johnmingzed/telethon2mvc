@@ -78,17 +78,20 @@ function users_fetchAll(PDO $pdo)
  * @param string $firstname
  * @param string $lastname
  * @param bool $is_admin
- * @return bool
+ * @return int lastInsertId()
  */
 function add_user(PDO $pdo, string $mail, string $firstname = null, string $lastname = null, bool $is_admin = null)
 {
     $sql = 'INSERT INTO users (mail, firstname, lastname, is_admin) VALUES (:mail, :firstname, :lastname, :is_admin)';
     $q = $pdo->prepare($sql);
-    $q->bindValue(':mail', $mail);
-    $q->bindValue(':firstname', $firstname);
-    $q->bindValue(':lastname', $lastname);
-    $q->bindValue(':is_admin', $is_admin);
-    return $q->execute();
+    $q->execute([
+        ':mail' => $mail,
+        ':firstname'=> $firstname,
+        ':lastname' => $lastname,
+        ':is_admin' => $is_admin
+    ]);
+    $id = $pdo->lastInsertId();
+    return $id;
 }
 
 
@@ -99,13 +102,14 @@ function add_user(PDO $pdo, string $mail, string $firstname = null, string $last
  * 
  * @param PDO $pdo
  * @param int $id
- * @return bool
+ * @return int $id
  */
 function delete_user(PDO $pdo, int $id)
 {
-    $sql = 'DELETE FROM users WHERE id_user = ?';
+    $sql = 'DELETE FROM users WHERE id_user = ? LIMIT 1';
     $q = $pdo->prepare($sql);
-    return $q->execute([$id]);
+    $q->execute([$id]);
+    return $id;
 }
 
 

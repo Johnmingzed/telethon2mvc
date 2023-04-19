@@ -37,12 +37,35 @@ function collects_add(PDO $pdo, float $collect, int $partner_id = null, int $sta
     return $q->execute();
 }
 
-
+/**
+ * Supprime une collecte
+ *
+ * @param PDO $pdo
+ * @param integer $id
+ * @return void
+ */
 function collects_delete(PDO $pdo, int $id){
     $sql = 'DELETE FROM collects where id_collect = ?';
     $q = $pdo->prepare($sql);
     return $q->execute([$id]);
 }
 
+function collects_FetchbyId(PDO $pdo, int $id){
+    $sql = 'SELECT * FROM collects WHERE id_collect ='.$id;
+    $q = $pdo->prepare($sql);
+    $q->execute();
+    return $q->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function collects_update(PDO $pdo, float $collect , string $partner = null, string $stand, int $id){
+    
+    $sql = 'UPDATE collects SET collect = :collect, partner = :partner, stand = :stand WHERE id ='.$id;
+
+    $q = $pdo->prepare($sql);
+    $q->bindValue(':collect', $collect);
+    $q->bindValue(':partner', $partner);
+    $q->bindValue(':stand', $stand);
+    return $q->execute();
+}
 
 //var_dump(collects_fetchAll($pdo));

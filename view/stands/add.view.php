@@ -3,28 +3,29 @@
     ob_start();
 ?>
 <main>
-    <form action="">
+    <form action="index.php?controller=stands&action=confirmation_add" method="post">
         <fieldset>
             <legend>Formulaire d'ajout d'un stand</legend>
             <div>
                 <label for="name">Nom du stands</label>
-                <input type="text" id="name" name="name" value="" require>
+                <input type="text" id="name" name="name" value="" required>
             </div>
             <div>
                 <label for="place">Localisation</label>
-                <input type="text" id="place" name="place" value="" rquire>
+                <input type="text" id="place" name="place" value="" required>
             </div>
             <div>
                 <label for="mail">Contact</label>
-                <input type="text" id="mail" name="mail" value="" require> 
+                <input type="email" id="mail" name="mail" value="" required> 
             </div>
             <div>
                 <label for="phone">Téléphone</label>
-                <input type="text" id="phone" name="phone" value="" require> 
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}" required> 
+                <small>Format: 99.99.99.99.99</small>
             <div>
             <div>
                 <label for="picture">Logo</label>
-                <input type="text" id="picture" name="picture" value=""> 
+                <input type="file" id="picture" name="picture" value=""> 
             <div>
                 <label for="note">Commentaire</label>
                 <textarea name="note" id="note" cols="30" rows="10"></textarea> 

@@ -7,6 +7,7 @@
 
     if(isset($_GET['action'])){
         switch($_GET['action']){
+            case 'confirmation_add' :
             case 'list' :
             case 'add' :
             case 'delete' :

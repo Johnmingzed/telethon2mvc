@@ -1,11 +1,13 @@
 <?php
 
-// Affichage des erreurs
+// Affichage des erreurs et activation
 error_reporting(E_ALL);
 
 session_start();
 
 require __DIR__. '/../inc/conf.php';
+// Activation de debug.php
+require_once ROOT . '/inc/debug.php';
 
 if (isset($_GET['controller'])) {
     switch ($_GET['controller']) {

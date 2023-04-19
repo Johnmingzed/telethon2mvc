@@ -1,51 +1,50 @@
 <?php
-$title = 'Modifier un utilisateur';
+$title = 'Utilisateurs';
 ob_start();
 ?>
 
 <main>
-    <h2>Modifier un utilisateur</h2>
-    <section>
+    <?php if(isset($_SESSION['msg'])) echo '<div class="message">' . $_SESSION['msg']['txt'] . '</div>';
+    if ($_GET['id'] == 'new') : ?>
+        <form action="index.php?controller=users&action=add" method="post">
+        <?php else : ?>
+            <form action="index.php?controller=users&action=update&id=<?= @htmlentities($user['id_user']) ?>" method="post">
+            <?php endif; ?>
 
-        <form action="index.php?controller=utilisateurs&action=update&id=<?= $utilisateur['id']; ?>" method="post">
-            <fieldset>
-                <legend>
-                    <h3>Utilisateur à modifier</h3>
-                </legend>
-                <div class="input">
-                    <label for="prenom">Prénom : </label>
-                    <input type="text" name="prenom" id="prenom" value="<?= $utilisateur['prenom'] ?>">
-                </div>
-                <div class="input">
-                    <label for="nom">Nom : </label>
-                    <input type="text" name="nom" id="nom" value="<?= $utilisateur['nom'] ?>">
-                </div>
-                <div class="input">
-                    <label for="mail">E-mail : </label>
-                    <input type="email" name="mail" id="mail" value="<?= $utilisateur['mail'] ?>">
-                </div>
-                <div class="password">
-                    <span>Mot de passe : </span>
-                    <?php
-                    if (!empty($utilisateur['mot_de_passe'])) {
-                        echo '<span class="pw_active">ACTIF</span>';
-                    } else {
-                        echo '<span class="pw_inactive">INACTIF</span>';
-                    }
-                    ?>
-                    <a class="button" href="index.php?controller=utilisateurs&action=pw_reset&id=<?= $utilisateur['id']; ?>">Réinitialiser</a>
-                </div>
-                <div class="id_admin">
-                    <label for="id_admin">Administrateur </label>
-                    <input type="checkbox" name="is_admin" id="is_admin" <?= ($utilisateur['is_admin'] === 1) ? 'checked' : '' ?>>
-                </div>
-                <input type="submit" value="Modifier">
-                <a class="button" href="index.php?controller=utilisateurs&action=list">Annuler</a>
-            </fieldset>
-        </form>
-    </section>
+            <div class="input">
+                <label for="lastname">Nom : </label>
+                <input type="text" name="lastname" id="lastname" value="<?= @htmlentities($user['lastname']) ?>">
+            </div>
+            <div class="input">
+                <label for="firstname">Prénom : </label>
+                <input type="text" name="firstname" id="firstname" value="<?= @htmlentities($user['firstname']) ?>">
+            </div>
+            <div class="input">
+                <label for="mail">E-mail : </label>
+                <input type="email" name="mail" id="mail" value="<?= @htmlentities($user['mail']) ?>" required>
+            </div>
+            <div class="password">
+                <span>Mot de passe : </span>
+                <?php
+                if (!empty($user['mot_de_passe'])) {
+                    echo '<span class="pw_active">ACTIF</span>';
+                } else {
+                    echo '<span class="pw_inactive">INACTIF</span>';
+                }
+                ?>
+            </div>
+            <div class="id_admin">
+                <label for="id_admin">Administrateur </label>
+                <input type="checkbox" name="is_admin" id="is_admin" <?= @($user['is_admin'] === 1) ? 'checked' : '' ?>>
+            </div>
+            <input type="submit" value="<?= @($_GET['id'] == 'new') ? 'Ajouter' : 'Modifier' ?>">
+            <a class="button" href="index.php?controller=users&action=list">Annuler</a>
+            </form>
+            <?php if ($_GET['id'] != 'new') : ?>
+                <a class="button" href="index.php?controller=users&action=pw_reset&id=<?= $user['id_user']; ?>">Changer le mot de passe</a>
+            <?php endif; ?>
 </main>
 
 <?php $content = ob_get_clean();
-
-require ROOT . '/view/templates/default.php';
+unset($_SESSION['msg']);
+require ROOT . '/view/template/default.php';

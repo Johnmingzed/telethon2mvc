@@ -5,7 +5,7 @@
  */
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    users_delete($pdo, $_GET['id']);
+    delete_user($pdo, $_GET['id']);
     $msg = [
         'css' => 'success',
         'txt' => 'L\'utilisateur a bien été supprimé.'
@@ -18,4 +18,4 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 }
 
 $_SESSION['msg'] = $msg;
-header('Location: index.php?controller=utilisateurs&action=list');
+header('Location: index.php?controller=users&action=list');
