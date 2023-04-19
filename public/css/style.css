@@ -1,57 +1,16 @@
-body {
+body,html {
     color: rgb(50, 49, 49);
 }
 header nav {
     background-color: #025C64;
 }
-header .logo {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-header .logo h1 {
-    margin-top: 5%;
-    text-align: center;
-}
-header .logo .topcompteur {
-    display: flex-end;
+header .topcompteur {
     background-color: #EECB5E;
     font-size: 2rem;
     padding: 10px;
 }
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-body>header>nav {
-    display: flex;
-    justify-content: space-between;
-}
-.main-menu {
-    display: flex;
-}
-.main-menu a {
-    padding: .6rem 1rem;
-    text-decoration: none;
-    color: #fff;
-}
-li.is-active>a,
-.main-menu a:hover {
-    background-color: #fff;
-    color: #025C64;
-}
-.user-menu {
-    color: #fff;
-}
-.user-menu>li>ul {
-    color: #fff;
-    display: none;
-}
-.user-menu>li:hover>ul {
-    color: #fff;
-    display: block;
+h2{
+    color: #8CD50A;
 }
 td,
 th,

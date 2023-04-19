@@ -1,9 +1,11 @@
 <?php
-
+    /*********Probleme de la liste partenaire a regler(quand fonction lié partenaire fait)
+     *********Regler le probleme "ajouter un stand bug la collecte"
+     */
     $title = 'Liste des collectes';
     ob_start();
     require_once ROOT . '/inc/debug.php';
-    debug($stands)
+    //debug($collects);
 ?>
 
 <main>
@@ -60,7 +62,7 @@
                 <td><?= $collect['date'] ?></td>
                 <td><?= $collect['partner_name']?></td>
                 <td><?= $collect['name']?></td>
-                <td><a href="">Modifier</a> - <a href="">Modifier</a></td>
+                <td><a href="">Modifier</a> - <a href="index.php?controller=collects&action=delete&id=<?= $collect['id_collect']; ?>">Supprimer</a></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -69,7 +71,7 @@
 
 <?php
 //require_once ROOT . '/inc/debug.php';
-//debug();
+debug($collect);
 $content = ob_get_clean();
 require ROOT.'/view/template/default.php';
 ?>

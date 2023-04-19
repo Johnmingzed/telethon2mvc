@@ -127,8 +127,7 @@ function update_user(PDO $pdo, array $data)
     }
     $sql = str_replace('id_user = :id_user, ', '', $sql);
     $sql = substr($sql, 0, -2);
-    $sql .= ' WHERE id_user = :id';
-    echo $sql;
+    $sql .= ' WHERE id_user = :id_user';
     $q = $pdo->prepare($sql);
     return $q->execute($data);
 }

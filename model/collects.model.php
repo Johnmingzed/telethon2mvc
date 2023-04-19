@@ -38,4 +38,11 @@ function collects_add(PDO $pdo, float $collect, int $partner_id = null, int $sta
 }
 
 
+function collects_delete(PDO $pdo, int $id){
+    $sql = 'DELETE FROM collects where id_collect = ?';
+    $q = $pdo->prepare($sql);
+    return $q->execute([$id]);
+}
+
+
 //var_dump(collects_fetchAll($pdo));
