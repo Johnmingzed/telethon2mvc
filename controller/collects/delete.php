@@ -1,5 +1,10 @@
 <?php
 
+if (!defined('FROM_INDEXES')) {
+  die('Acces Refusé');
+}
+
+
 if (isset($_GET['id'])) {
     collects_delete($pdo, $_GET['id']);
     $msg = [

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 require_once __DIR__ . '/pdo.php';
 
 /**
@@ -42,4 +50,17 @@ function add_partner(PDO $pdo, string $firstname, string $lastname, string $mail
     ]);
     $id = $pdo->lastInsertId();
     return $id;
+}
+
+function update_partner(PDO $pdo, array $data)
+{
+    $sql = 'UPDATE partners SET ';
+    foreach ($data as $key => $value) {
+        $sql .= $key . ' = :' . $key . ', ';
+    }
+    $sql = str_replace('id_partner = :id_partner, ', '', $sql);
+    $sql .= ' WHERE id_partner = :id_partner';
+    $q = $pdo->prepare($sql);
+    $q->execute($data);
+    return $data['id_partner'];
 }

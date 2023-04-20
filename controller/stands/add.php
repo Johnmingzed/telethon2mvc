@@ -1,4 +1,7 @@
 <?php
+    if (!defined('FROM_INDEXES')) {
+        die('Prout');
+    }
     require_once ROOT.'/model/stands.model.php';
 
     if(isset($_POST['name'], $_POST['mail'], $_POST['phone'], $_POST['place'],   $_POST['picture'], $_POST['notes'])){

@@ -1,7 +1,13 @@
 <?php
 
+if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
+
 require_once ROOT . '/model/collects.model.php';
 require_once ROOT . '/model/stands.model.php';
+require_once ROOT . '/model/partners.model.php';
 
 /**
  * Routage par action

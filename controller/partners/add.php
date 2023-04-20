@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 if (isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['phone'], $_POST['name'])) {
     $partner_id = empty($_POST['partner']) ? NULL : trim(htmlspecialchars($_POST['partner']));
     if (add_partner($pdo, $_POST['partner'], $partner_id, $mail, $phone, $name)) {
@@ -10,7 +18,7 @@ if (isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['phone
     } else {
         $_SESSION['msg'] = [
             'css' => 'is-warning',
-            'txt' => 'Quelque chose en français que je ne peux pas écrire'
+            'txt' => 'Unsucceeded'
         ];
     }
 } else {

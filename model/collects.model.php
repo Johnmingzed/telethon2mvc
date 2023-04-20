@@ -1,6 +1,11 @@
 <?php
 
+if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 require_once 'pdo.php';
+
 
 /**
  * Recupere L'id, la somme, la date(formaté en Jour/Mois/Années) dans la table "collects" et le stand dans la table "stands" grace au stand_id 
@@ -27,7 +32,7 @@ function collects_fetchAll(PDO $pdo){
  * @param integer|null $stand_id
  * @return void
  */
-function collects_add(PDO $pdo, float $collect, int $partner_id = null, int $stand_id = null){
+function collects_add(PDO $pdo, float $collect, int $stand_id = null, int $partner_id = null){
     $sql = 'INSERT INTO collects(collects.collect, collects.partner_id, collects.stand_id) VALUES (:collect, :partner_id, :stand_id)';
 
     $q = $pdo->prepare($sql);
@@ -66,6 +71,18 @@ function collects_update(PDO $pdo, float $collect , string $partner = null, stri
     $q->bindValue(':partner', $partner);
     $q->bindValue(':stand', $stand);
     return $q->execute();
+}
+
+/**
+ * Retourne la somme de l'ensemble des collectes
+ *
+ * @param PDO $pdo
+ * @return void
+ */
+function collects_total(PDO $pdo){
+    $sql = 'SELECT sum(collect) FROM collects';
+    $q = $pdo->query($sql);
+    return $q->fetchColumn();
 }
 
 //var_dump(collects_fetchAll($pdo));

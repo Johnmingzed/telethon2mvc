@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
             <img src="/public/css/img/logo-telethon-babouche.png" alt="" width="20%">
             <h2 class="head-title fw-bold">Actions Telethon</h2>
             <span class="topcompteur">
-                <p> 4444 &euro; </p>
+                <p><?= $total ?> &euro;</p>
             </span>
         </div>
 
@@ -49,6 +50,11 @@
 
     <main class="container">
         <h3 class="page-title fw-bold fst-italic"><?= $title ?></h3>
+       <?php if(isset($_SESSION['msg'])) : ?>
+        <div class="msg <?=  $_SESSION['msg']['css'] ?>">
+            <?= $_SESSION['msg']['txt'] ?>
+        </div>
+        <?php unset($_SESSION['msg']); endif ?>
         <div>
             <?= $content ?>
         </div>

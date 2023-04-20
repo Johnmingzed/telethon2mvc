@@ -1,6 +1,6 @@
 /* General */
 body {
-    font-family: 'PT Serif', serif;
+    font-family: 'PT Serif', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #333;
@@ -76,25 +76,39 @@ main {
 }
 
 .page-title {
-    font-family: 'PT Serif', serif;
     color: #038591;
     margin: 2%;
     margin-bottom: 0;
-}
-
-main h2,
-main h3 {
-    font-family: 'PT Serif', serif;
 }
 
 main h3 {
     color: #8CD50A;
 }
 
-main .btn {
-    background-color: #8CD50A;
+main .btn{ 
     padding: 5px 35px;
     margin: 2%;
+}
+
+main .btn-add{
+    background-color: #8CD50A;
+}
+
+main .btn-cancel {
+    background-color: rgb(178, 66, 66);
+}
+
+.success {
+    background-color: #8CD50A;
+    text-align: center;
+    font-weight: bold;
+}
+
+.warning {
+    background-color: rgb(178, 66, 66);
+    text-align: center;
+    font-weight: bold;
+    color:white;
 }
 
 /* Table */

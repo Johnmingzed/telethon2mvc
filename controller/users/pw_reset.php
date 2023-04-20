@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 if (isset($_GET['token']) && !empty($_GET['token'])) {
     echo 'OK on va pouvoir changer de mot de passe.<br>';
     echo 'Votre token est : ' . $_GET['token'] . '<br>';

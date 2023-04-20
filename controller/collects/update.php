@@ -1,8 +1,14 @@
 <?php
 
+if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 
 
 $collects = collects_FetchbyId($pdo, $_GET['id']);
+$partners = fetch_partner_by_id($pdo, $_GET['id']);
+$stands = read_stands_by_id($pdo, $_GET['id']);
 
 if (isset($_POST['collect'], $_POST['partner_id'], $_POST['stand_id'])) {
     if(!empty($_POST['collect'])){
@@ -22,6 +28,6 @@ if (isset($_POST['collect'], $_POST['partner_id'], $_POST['stand_id'])) {
     }
 }
 
-
+var_dump($collects);
 
 require ROOT.'/view/collects/update.view.php';
