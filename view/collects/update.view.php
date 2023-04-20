@@ -3,7 +3,7 @@
 if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
-
+debug($partners);
 
 
 $title = 'Modifier les collectes';
