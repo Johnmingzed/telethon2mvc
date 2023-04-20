@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 //Import Upload classes into the global namespace
 use Verot\Upload\Upload;
 

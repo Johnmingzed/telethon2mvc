@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 if (isset($_POST['mail'])) {
     if (!empty($_POST['mail'])) {
         $_POST['firstname'] = empty($_POST['firstname']) ? NULL : ucfirst(strtolower($_POST['firstname']));
@@ -7,6 +15,7 @@ if (isset($_POST['mail'])) {
         $_POST['is_admin'] = isset($_POST['is_admin']) && $_POST['is_admin'] === 'on';
 
         // On vérifie que l'adresse mail est unique
+        // Pourrait être remplacé par une fonction de users.model.php
         $sql = "SELECT COUNT(*) FROM users WHERE mail = ?";
         $q = $pdo->prepare($sql);
         $q->execute([$_POST['mail']]);

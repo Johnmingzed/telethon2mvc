@@ -1,4 +1,7 @@
 <?php
+    if (!defined('FROM_INDEXES')) {
+        die('Prout');
+    }
     $title = 'Stands';
     ob_start();
 ?>
@@ -25,8 +28,8 @@
                 <td><?= $listStand['name'] ?></td>
                 <td><?= $listStand['place'] ?></td>
                 <td>
-                    <a href="index.php?controller=stands&action=update"><i class="bi bi-pencil fs-3"></i></a>
-                    <a href="index.php?controller=stands&action=delete"><i class="bi bi-trash fs-3"></i></a>
+                    <a href="index.php?controller=stands&action=update&id=<?= $listStand['id_stand'] ?>"><i class="bi bi-pencil fs-3"></i></a>
+                    <a href="index.php?controller=stands&action=delete&id=<?= $listStand['id_stand'] ?>"><i class="bi bi-trash fs-3"></i></a>
                 </td>
             </tr>
         <?php endforeach ; ?>

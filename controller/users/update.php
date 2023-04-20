@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 /* $_POST['id'] = $_GET['id'];
 $_POST['is_admin'] = (isset($_POST['is_admin']) && $_POST['is_admin'] === 'on') ? 1 : 0;
 die; */
@@ -12,6 +20,7 @@ if (isset($_GET['id'], $_POST['mail'])) {
         $_POST['id_user'] = $_GET['id'];
 
         // On vérifie que l'adresse mail n'est pas attribuée à un autre utilisateur
+        // Pourrait être remplacé par une fonction de users.model.php
         $sql = "SELECT COUNT(*) FROM users WHERE mail = :mail AND id_user != :id_user";
         $q = $pdo->prepare($sql);
         $q->bindValue(':mail', $_POST['mail']);
@@ -24,12 +33,14 @@ if (isset($_GET['id'], $_POST['mail'])) {
                     'css' => 'success',
                     'txt' => 'L\'utilisateur ID : ' . $_POST['id_user'] . ' a bien été modifié.'
                 ];
-                // Enregistrement de l'image
-                require_once ROOT . '/model/upload.php';
-                update_user($pdo, [
-                    'id_user' => $_POST['id_user'],
-                    'picture' => $user_picture
-                ]);
+                // Enregistrement d'une nouvelle image de profil
+                if($_FILES['picture']['error'] == 0){
+                    require_once ROOT . '/model/upload.php';
+                    update_user($pdo, [
+                        'id_user' => $_POST['id_user'],
+                        'picture' => $user_picture
+                    ]);
+                }
             } else {
                 $_SESSION['msg'] = [
                     'css' => 'warning',

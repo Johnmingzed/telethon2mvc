@@ -1,13 +1,20 @@
 <?php
 
+define('FROM_INDEXES', true);
+
 // Affichage des erreurs
 error_reporting(E_ALL);
 
 require_once __DIR__ . '/../inc/conf.php';
 require_once __DIR__ . '/../model/users.model.php';
+require_once __DIR__ . '/../model/collects.model.php';
 require_once __DIR__ . '/../inc/debug.php';
 
-echo 'Test de la fonction get_password : ';
+echo 'Test de la fonction collects_total : ';
+var_dump(collects_total($pdo));
+echo collects_total($pdo) . ' € collectés à présent.';
+
+echo '<br>Test de la fonction get_password : ';
 var_dump(get_password($pdo, 'nia1512@gmail.com'));
 
 echo '<br>Test de la fonction fetch_user_by_mail :';

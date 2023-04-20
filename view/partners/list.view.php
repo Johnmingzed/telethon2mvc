@@ -1,10 +1,19 @@
 <?php
+
+/**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
 $title = 'Les parternaires';
 ob_start();
 ?>
 
 <main>
-    <a class="btn btn-lg ajouter" href="index.php?controller=partners&action=add">Ajouter</a>
+    <a class="btn btn-lg btn-add" href="index.php?controller=partners&action=add">Ajouter</a>
     <table>
         <?php foreach ($partners as $partner) : ?>
             <tr>

@@ -1,15 +1,21 @@
 <?php
 
-/*********Probleme de la liste partenaire a regler(quand fonction lié partenaire fait)
- *********Regler le probleme "ajouter un stand bug la collecte"
- */
+if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
+//require_once ROOT . '/inc/debug.php' ;
+//debug($_SESSION['msg']);
+
+
 $title = 'Liste des collectes';
 ob_start();
-//require_once ROOT . '/inc/debug.php';
-//debug(collects_FetchbyId($pdo, 2));
 ?>
 
+
+
 <main>
+
     <section>
         <h3>Ajouter une collecte</h3>
         <form action="index.php?controller=collects&action=add" method="post">
@@ -42,7 +48,7 @@ ob_start();
             </div>
 
             <div class="submit">
-                <input type="submit" value="Enregistrer">
+                <input class="btn btn-lg btn-add" type="submit" value="Enregistrer" >
             </div>
         </form>
     </section>
@@ -63,7 +69,7 @@ ob_start();
                     <td><?= $collect['date'] ?></td>
                     <td><?= $collect['partner_name'] ?></td>
                     <td><?= $collect['name'] ?></td>
-                    <td><a href=""><i class="bi bi-pencil-square fs-3"></i></a> -
+                    <td><a href="index.php?controller=collects&action=update&id=<?= $collect['id_collect']; ?>"><i class="bi bi-pencil-square fs-3"></i></a> 
                     <a href="index.php?controller=collects&action=delete&id=<?= $collect['id_collect']; ?>"><i class="bi bi-trash fs-3"></i></a></td>
                 </tr>
             <?php endforeach; ?>
@@ -75,5 +81,5 @@ ob_start();
 //require_once ROOT . '/inc/debug.php';
 //debug($collect);
 $content = ob_get_clean();
+
 require ROOT . '/view/template/default.php';
-?>

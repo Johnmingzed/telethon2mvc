@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * Contrôle de la provenance depuis public/index.php.
+ */
+
+ if (!defined('FROM_INDEXES')) {
+    die('Acces Refusé');
+}
+
+/**
  * Supprime un utilisateur par son ID
  */
 

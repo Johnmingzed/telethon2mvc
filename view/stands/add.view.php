@@ -1,7 +1,11 @@
 <?php
+    if (!defined('FROM_INDEXES')) {
+        die('Prout');
+    }
     $title = 'Ajouter un stands';
     ob_start();
 ?>
+
 <main>
     <form action="index.php?controller=stands&action=add" method="post">
         <fieldset>
