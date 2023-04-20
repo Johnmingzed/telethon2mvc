@@ -3,14 +3,17 @@
 if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
-debug($partners);
+
+//var_dump($stands);
+//require_once ROOT . '/inc/debug.php';
+//debug($collects);
 
 
 $title = 'Modifier les collectes';
 ob_start();
 
 ?>
-<main>
+
     <form action="index.php?controller=collects&action=update" method="post">
         <div class="fields">
             <div class="field">
@@ -41,7 +44,7 @@ ob_start();
 
         </div>
     </form>
-</main>
+
 <?php
 $content = ob_get_clean();
 require ROOT . '/view/template/default.php';

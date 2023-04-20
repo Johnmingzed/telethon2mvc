@@ -37,7 +37,7 @@ if ($_GET['id'] == 'new') : ?>
         <div class="password mb-3">
             <span>Mot de passe : </span>
             <?php
-            if (!empty($user['mot_de_passe'])) {
+            if (!empty($user['password'])) {
                 echo '<span class="pw_active">ACTIF</span>';
             } else {
                 echo '<span class="pw_inactive">INACTIF</span>';
@@ -48,11 +48,13 @@ if ($_GET['id'] == 'new') : ?>
             <label for="id_admin">Administrateur </label>
             <input type="checkbox" name="is_admin" id="is_admin" <?= @($user['is_admin'] === 1) ? 'checked' : '' ?>>
         </div>
-        <input type="submit" class="btn btn-lg btn-add" value="<?= @($_GET['id'] == 'new') ? 'Ajouter' : 'Modifier' ?>">
-        <a class="btn btn-lg btn-cancel" href="index.php?controller=users&action=list">Annuler</a>
+        <div class="text-center">
+            <input type="submit" class="btn btn-lg btn-add" value="<?= @($_GET['id'] == 'new') ? 'Ajouter' : 'Modifier' ?>">
+            <a class="btn btn-lg btn-cancel" href="index.php?controller=users&action=list">Annuler</a>
+        </div>
         </form>
         <?php if ($_GET['id'] != 'new') : ?>
-            <div class="mb-3"><a class="button" href="index.php?controller=users&action=pw_reset&id=<?= $user['id_user']; ?>">Changer le mot de passe</a></div>
+            <div class="text-center mb-3"><a class="button" href="index.php?controller=users&action=password&id=<?= $user['id_user']; ?>">Changer le mot de passe</a></div>
         <?php endif; ?>
 
 

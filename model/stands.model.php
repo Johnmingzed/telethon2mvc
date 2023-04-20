@@ -28,9 +28,9 @@
     
     function read_stands_by_id(PDO $pdo, int $id){
         $sql = 'SELECT * FROM `stands` WHERE stands.id_stand = ?';
-        $q = $pdo -> prepare($sql);
-        $q -> execute([$id]);
-        return $q -> fetchAll(PDO::FETCH_ASSOC);
+        $q = $pdo->prepare($sql);
+        $q->execute([$id]);
+        $q->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function add_stands(PDO $pdo, string $name, string $mail, string $phone, string $place, $logo, $notes){
@@ -58,7 +58,7 @@
     }
 
     function delete(PDO $pdo, int $id){
-        $sql = 'DELETE stands WHERE stands.id_stand ='.$id;
+        $sql = 'DELETE FROM stands WHERE stands.id_stand ='.$id;
         $q = $pdo->prepare($sql);
         return $q->execute();
     }

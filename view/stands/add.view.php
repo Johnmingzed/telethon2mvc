@@ -35,7 +35,7 @@
                 <textarea name="notes" id="notes" cols="30" rows="10"></textarea> 
             </div>
             <div>
-                <input type="submit" value="Ajouté">
+                <input type="submit" value="Ajouter">
                 <input type="reset" value="Annuler">
             </div>
         </fieldset>

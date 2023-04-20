@@ -15,12 +15,12 @@ if (isset($_POST['partner'], $_POST['partner_id'], $_POST['firstname'], $_POST['
         $partner= empty($_POST['partner_id']) ? NULL : $_POST['partner_id'];
         if(update_partner($pdo, $_POST['partner'], $_POST['partner_id'],$_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['phone'], $_POST['name'], $_GET['id'] )){
             $_SESSION['msg'] = [
-                'css'=>'is-success',
+                'css'=>'success',
                 'txt'=>'Votre profil a été mis à jour'
             ];
         }else {
             $_SESSION['msg'] = [
-                'css'=>'is-warning',
+                'css'=>'warning',
                 'txt'=>'Unsucceeded'
             ];  
         }

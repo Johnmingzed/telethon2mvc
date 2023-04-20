@@ -2,17 +2,15 @@
     if (!defined('FROM_INDEXES')) {
         die('Prout');
     }
-    require_once ROOT.'/model/stands.model.php';
-
-    if(isset($_POST['id']) && isset($_GET['confirmation']) === 'yes'){
-        if(!empty($_POST['id'])){
-            if(delete($pdo, $_POST['id'])){
-                $connexion = "Félicitation, votre stand a bien été supprimé !";
-                header('Location: index.php?controller=stands');
-            }
-        }
-    }elseif(isset($_GET['confirmation']) === 'no'){
-        $listStands = read_stands_by_id($pdo, $_GET['id']);
-    }
-
-    require_once ROOT.'/view/stands/delete.view.php';
+    $title = "Suppression d'un stand";
+    ob_start();
+?>
+    <?php   foreach($listStands as $listStand): ?>
+        <h1>Voulez-vous vraiment supprimer le stand : <?= $listStand['name'] ?></h1>
+    <?php   endforeach; ?>
+    <button type="text"><a href="index.php?controller=stands&action=delete&id=<?= $listStand['id_stand'] ?>&confirmation=yes">Oui</a></button>
+    <button type="text"><a href="index.php?controller=stands&action=delete&confirmation=no">Non</a></button>
+<?php
+    $content = ob_get_clean();
+    require_once ROOT.'/view/template/default.php';
+?>

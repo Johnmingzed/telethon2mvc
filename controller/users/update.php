@@ -13,7 +13,7 @@ $_POST['is_admin'] = (isset($_POST['is_admin']) && $_POST['is_admin'] === 'on') 
 die; */
 
 if (isset($_GET['id'], $_POST['mail'])) {
-    if (!empty($_POST['mail']) && !empty($_GET['id'])) {
+    if (!empty($_POST['mail']) && !empty($_GET['id']) && filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
         $_POST['firstname'] = empty($_POST['firstname']) ? NULL : ucfirst(strtolower($_POST['firstname']));
         $_POST['lastname'] = empty($_POST['lastname']) ? NULL : strtoupper($_POST['lastname']);
         $_POST['is_admin'] = ($_POST['is_admin'] === 'on') ? 1 : 0;

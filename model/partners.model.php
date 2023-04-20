@@ -37,19 +37,24 @@ function partners_fetchAll(PDO $pdo)
     return $q->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function add_partner(PDO $pdo, string $firstname, string $lastname, string $mail, int $phone, string $name)
+function add_partner(PDO $pdo, string $firstname, string $lastname, string $mail, string $phone, string $name)
 {
     $sql = 'INSERT INTO partners (firstname, lastname, mail, phone, name) VALUES (:firstname, :lastname, :mail, :phone, :name)';
     $q = $pdo->prepare($sql);
-    $q->execute([
-        ':firstname'=> $firstname,
-        ':lastname' => $lastname,
-        ':mail' => $mail,
-        ':phone' => $phone,
-        ':name' => $name
-    ]);
-    $id = $pdo->lastInsertId();
-    return $id;
+    try {
+        $q->execute([
+            ':firstname'=> $firstname,
+            ':lastname' => $lastname,
+            ':mail' => $mail,
+            ':phone' => $phone,
+            ':name' => $name
+        ]);
+        $id = $pdo->lastInsertId();
+        return $id;
+    } catch (PDOException $e) {
+        error_log('Error inserting partner: ' . $e->getMessage());
+        return false;
+    }
 }
 
 function update_partner(PDO $pdo, array $data)

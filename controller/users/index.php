@@ -27,7 +27,7 @@ if (isset($_GET['action'])) {
         case 'edit':
         case 'update':
         case 'add':
-        case 'pw_reset':
+        case 'password':
             $action = $_GET['action'];
             break;
         default:

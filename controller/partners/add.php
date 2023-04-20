@@ -4,28 +4,43 @@
  * Contrôle de la provenance depuis public/index.php.
  */
 
- if (!defined('FROM_INDEXES')) {
+if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
-if (isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['phone'], $_POST['name'])) {
-    $partner_id = empty($_POST['partner']) ? NULL : trim(htmlspecialchars($_POST['partner']));
-    if (add_partner($pdo, $_POST['partner'], $partner_id, $mail, $phone, $name)) {
-        $_SESSION['msg'] = [
-            'css' => 'is-success',
-            'txt' => 'Votre compte a été ajouté'
-        ];
-    } else {
-        $_SESSION['msg'] = [
-            'css' => 'is-warning',
-            'txt' => 'Unsucceeded'
-        ];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['firstname'], $_POST['lastname'], $_POST['mail'], $_POST['phone'], $_POST['name'])) {
+        if (!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['mail']) && !empty($_POST['phone']) && !empty($_POST['name'])) {
+            $firstname = trim(htmlspecialchars($_POST['firstname']));
+            $lastname = trim(htmlspecialchars($_POST['lastname']));
+            $mail = trim(htmlspecialchars($_POST['mail']));
+            $phone = trim(htmlspecialchars($_POST['phone']));
+            $phone = substr_replace($phone, '.', 2, 0);
+            $phone = substr_replace($phone, '.', 5, 0);
+            $phone = substr_replace($phone, '.', 8, 0);
+            $phone = substr_replace($phone, '.', 11, 0);
+            $phone = substr_replace($phone, '.', 14, 0);
+            $name = trim(htmlspecialchars($_POST['name']));
+            if (add_partner($pdo, $firstname, $lastname, $mail, $phone, $name)) {
+                $_SESSION['msg'] = [
+                    'css' => 'success',
+                    'txt' => 'Votre partenaire a été ajouté avec succès!'
+                ];
+                header('Location: index.php?controller=partners&actions=list');
+                exit;
+            } else {
+                $_SESSION['msg'] = [
+                    'css' => 'warning',
+                    'txt' => 'Erreur: impossible d\'ajouter le partenaire!'
+                ];
+            }
+        } else {
+            $_SESSION['msg'] = [
+                'css' => 'warning',
+                'txt' => 'Merci de remplir tous les champs obligatoires!'
+            ];
+        }
     }
-} else {
-    $_SESSION['msg'] = [
-        'css' => 'is-warning',
-        'txt' => 'Merci completer les champs requis'
-    ];
 }
 
 require ROOT . '/view/partners/add.view.php';

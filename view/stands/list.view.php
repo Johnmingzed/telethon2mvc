@@ -7,11 +7,20 @@
 ?>
 <main>
     <?php
+        $_FILES['image']['name'] = 'ferrari.jpg';
+
+        var_dump($_FILES['image']['tmp_name'].PHP_EOL);
+        echo "</br>";
+        echo "</br>";
         $image = 'ferrari.jpg';
-        $nameFichier = explode('.', $image);
+        $nameFichier = explode('.', $_FILES['image']['name']);
         var_dump($nameFichier);
-        $nomfichier = basename(ROOT.'/public/images/user_1.png', '.png');
+        $image = 'user_10.jpg';
+        $nomfichier = !file_exists(ROOT.'/public/images/'.$image);
         var_dump($nomfichier);
+        $time = time();
+        $nouveau_nom_de_photo = $nameFichier[0].$time.'.'.$nameFichier[1];
+        var_dump($nouveau_nom_de_photo);
         
     ?>
         <h1><?= $nameFichier[0]; ?></h1>

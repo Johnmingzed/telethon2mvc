@@ -73,6 +73,14 @@ function collects_update(PDO $pdo, float $collect , string $partner = null, stri
     return $q->execute();
 }
 
+
+/***********SQL POUR LA PROCHAINE FONCTION POUR UPDATE EN R2CUPERANT LES NOM PARTNERS ET STANDS */
+/*SELECT collects.collect, stands.id_stand,stands.name as standnname, partners.id_partner, partners.name as partnername
+FROM collects
+LEFT JOIN stands ON stands.id_stand  =collects.stand_id
+LEFT JOIN partners ON partners.id_partner = collects.partner_id
+WHERE collects.id_collect = ?*/
+
 /**
  * Retourne la somme de l'ensemble des collectes
  *

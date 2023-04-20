@@ -1,5 +1,6 @@
-if(basename(ROOT.'/public/images/'.$_POST['picture'].'.png', '.png') === $_POST['picture'] or basename(ROOT.'/public/images/'.$_POST['picture'].'.jpg', '.jpg') === $_POST['picture']){
-    $namePicture = explode
+<?php
+    if(basename(ROOT.'/public/images/'.$_POST['picture'].'.png', '.png') === $_POST['picture'] or basename(ROOT.'/public/images/'.$_POST['picture'].'.jpg', '.jpg') === $_POST['picture']){
+    $namePicture = explode();
     $logo = empty($_POST['picture']) ? NULL : $_POST['picture'];
     $notes = empty($_POST['notes']) ? NULL : $_POST['notes'];
 
@@ -10,6 +11,6 @@ if(basename(ROOT.'/public/images/'.$_POST['picture'].'.png', '.png') === $_POST[
 
     $connexion = "Félicitation, votre stand a bien été ajouté !";
     header('Location: index.php?controller=stands');
-}else{
+    }else{
 
-}
+    }

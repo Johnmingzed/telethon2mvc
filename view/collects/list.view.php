@@ -14,7 +14,7 @@ ob_start();
 
 
 
-<main>
+
 
     <section>
         <h3>Ajouter une collecte</h3>
@@ -58,7 +58,7 @@ ob_start();
                 <th>Collecte</th>
                 <th>Date</th>
                 <th>Partenaire</th>
-                <th>Sponsor</th>
+                <th>Stand</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -75,7 +75,7 @@ ob_start();
             <?php endforeach; ?>
         </tbody>
     </table>
-</main>
+
 
 <?php
 //require_once ROOT . '/inc/debug.php';

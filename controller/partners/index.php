@@ -1,17 +1,10 @@
-<?php
-
-/**
- * Contrôle de la provenance depuis public/index.php.
- */
-
- if (!defined('FROM_INDEXES')) {
-    die('Acces Refusé');
-}
+<?php 
 
 require_once ROOT . '/model/partners.model.php';
 
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
+        case 'edit':
         case 'list':
         case 'delete':
         case 'update':
