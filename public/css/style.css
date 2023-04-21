@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 100svh;
 }
 
 a {
@@ -30,6 +31,11 @@ header nav {
     color: #F0F0F0;
 }
 
+header img {
+    max-height: 7rem;
+    margin: .75rem;
+}
+
 nav ul {
     list-style-type: none;
 }
@@ -51,7 +57,7 @@ body>header>nav {
     color: #F0F0F0;
 }
 
-.topcompteur {
+/* .topcompteur {
     text-align: center;
     background-color: #EECB5E;
     padding: 5px 35px;
@@ -62,7 +68,35 @@ body>header>nav {
     background-color: #F0F0F0;
     margin: 0;
     margin-top: 8px;
-}
+} */
+
+  .topcompteur {
+    background-color: #eecb5e;
+    font-size: 3rem;
+    padding: 0.35em 0.45em;
+    font-family: "Ubuntu Mono", monospace;
+    border-radius: 0.25em;
+    height: 2.25em;
+  }
+  
+  .cartouche {
+    display: flex;
+    background-image: linear-gradient(90deg, #fff 0.7em, transparent 0.5em);
+    background-size: 1em;
+  }
+  
+  .total {
+    color: #000;
+    letter-spacing: 0.5em;
+    transform: translateX(.1em);
+    margin:0;
+  }
+  
+  .euro{
+    color:#fff;
+    margin:0;
+    background-color: #eecb5e;
+  }
 
 /* Main */
 

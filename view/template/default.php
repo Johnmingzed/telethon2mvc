@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Raleway&family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../public/css/style.css">
@@ -20,12 +19,18 @@
 
 <body>
     <header>
-        <div class="container-fluid d-flex justify-content-between logo">
+        <div class="container-fluid d-flex justify-content-between align-items-center logo">
             <a href="index.php"><img src="/public/css/img/logo-telethon-babouche.png" alt=""></a>
-            <h2 class="head-title fw-bold">Actions Telethon</h2>
-            <span class="topcompteur">
+            <h2 class="m-0 fw-bold">Actions Telethon</h2>
+            <div class="topcompteur">
+                <div class="cartouche">
+                    <p class="total"><?= str_pad($total, 5, 0, STR_PAD_LEFT) ?></p>
+                    <p class="euro">&euro;</p>
+                </div>
+            </div>
+<!--             <span class="topcompteur">
                 <p><?= str_pad($total, 5, 0, STR_PAD_LEFT) ?> &euro;</p>
-            </span>
+            </span> -->
         </div>
 
         <nav class="container-fluid">
@@ -50,11 +55,12 @@
 
     <main class="container">
         <h3 class="page-title fw-bold fst-italic"><?= $title ?></h3>
-       <?php if(isset($_SESSION['msg'])) : ?>
-        <div class="msg <?=  $_SESSION['msg']['css'] ?>">
-            <?= $_SESSION['msg']['txt'] ?>
-        </div>
-        <?php unset($_SESSION['msg']); endif ?>
+        <?php if (isset($_SESSION['msg'])) : ?>
+            <div class="msg <?= $_SESSION['msg']['css'] ?>">
+                <?= $_SESSION['msg']['txt'] ?>
+            </div>
+        <?php unset($_SESSION['msg']);
+        endif ?>
         <div>
             <?= $content ?>
         </div>
