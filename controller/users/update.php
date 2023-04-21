@@ -4,7 +4,7 @@
  * Contrôle de la provenance depuis public/index.php.
  */
 
- if (!defined('FROM_INDEXES')) {
+if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
@@ -34,7 +34,7 @@ if (isset($_GET['id'], $_POST['mail'])) {
                     'txt' => 'L\'utilisateur ID : ' . $_POST['id_user'] . ' a bien été modifié.'
                 ];
                 // Enregistrement d'une nouvelle image de profil
-                if($_FILES['picture']['error'] == 0){
+                if ($_FILES['picture']['error'] == 0) {
                     require_once ROOT . '/model/upload.php';
                     update_user($pdo, [
                         'id_user' => $_POST['id_user'],

@@ -4,7 +4,7 @@
  * Contrôle de la provenance depuis public/index.php.
  */
 
- if (!defined('FROM_INDEXES')) {
+if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
@@ -13,8 +13,8 @@
  */
 
 if (isset($_GET['id'])) {
-    if($_GET['id'] == 'new'){
-    } elseif (is_numeric($_GET['id'])){
+    if ($_GET['id'] == 'new') {
+    } elseif (is_numeric($_GET['id'])) {
         $user = fetch_user_by_id($pdo, $_GET['id']);
     }
 } else {

@@ -24,7 +24,7 @@
             <img src="/public/css/img/logo-telethon-babouche.png" alt="" width="20%">
             <h2 class="head-title fw-bold">Actions Telethon</h2>
             <span class="topcompteur">
-                <p><?= $total ?> &euro;</p>
+                <p><?= str_pad($total, 10, 0, STR_PAD_LEFT) ?> &euro;</p>
             </span>
         </div>
 

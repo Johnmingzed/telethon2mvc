@@ -16,7 +16,7 @@ require ROOT . '/vendor/autoload.php';
 
 $handle = new Upload($_FILES['picture']);
 if ($handle->uploaded) {
-    $handle->file_new_name_body   = 'user';
+    $handle->file_new_name_body   = 'user_image';
     $handle->image_resize         = true;
     $handle->image_x              = 250;
     $handle->image_ratio_y        = true;

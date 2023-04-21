@@ -16,14 +16,14 @@ ob_start();
     <div class="password mb-3">
         <div class="mb-3">État actuel du mot de passe :
             <?php if (!empty($user['password'])) : ?>
-                <span class="pw_active mb-3">ACTIF</span>
+                <span class="success p-2 mb-3">ACTIF</span>
         </div>
         <div class="input mb-3">
             <label class="name" for="old_password">Ancien mot de passe : </label>
             <input class="form-control" type="password" name="old_password" id="old_password">
         </div>
     <?php else : ?>
-        <span class="pw_inactive mb-3">INACTIF</span>
+        <span class="warning p-2 mb-3">INACTIF</span>
     </div>
 <?php endif ?>
 </div>

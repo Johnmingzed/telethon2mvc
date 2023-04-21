@@ -4,7 +4,7 @@
  * Contrôle de la provenance depuis public/index.php.
  */
 
- if (!defined('FROM_INDEXES')) {
+if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
@@ -18,7 +18,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         'css' => 'success',
         'txt' => 'L\'utilisateur a bien été supprimé.'
     ];
-}else{
+} else {
     $msg = [
         'css' => 'warning',
         'txt' => 'Action impossible.'
@@ -26,4 +26,4 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 }
 
 $_SESSION['msg'] = $msg;
-header('Location: index.php?controller=users&action=list');
+header('Location: index.php?controller=users');

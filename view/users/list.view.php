@@ -16,6 +16,7 @@ ob_start();
 <table>
     <?php foreach ($users as $user) : ?>
         <tr>
+            <td><img src="../public/images/<?=  $user['picture'] ?>" alt=""></td>
             <td><?= $user['firstname'] . ' ' . @strtoupper($user['lastname']) ?></td>
             <td><?= $user['mail'] ?></td>
             <td><?= ($user['is_admin'] === 1) ? 'Admin' : 'Collaborateur' ?></td>

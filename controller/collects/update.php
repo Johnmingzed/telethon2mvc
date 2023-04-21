@@ -13,23 +13,23 @@ $stands = read_stands_by_id($pdo, $_GET['id']);
 var_dump($stands);
 
 if (isset($_POST['collect'], $_POST['partner_id'], $_POST['stand_id'])) {
-    if(!empty($_POST['collect'])){
-        $collect= empty($_POST['partner_id']) ? NULL : $_POST['partner_id'];
-        $collect= empty($_POST['stand_id']) ? NULL : $_POST['stand_id'];
-        if(collects_update($pdo, $_POST['collect'], $_POST['partner_id'], $ $_POST['stand_id'], $_GET['id'] )){
+    if (!empty($_POST['collect'])) {
+        $collect = empty($_POST['partner_id']) ? NULL : $_POST['partner_id'];
+        $collect = empty($_POST['stand_id']) ? NULL : $_POST['stand_id'];
+        if (collects_update($pdo, $_POST['collect'], $_POST['partner_id'], $$_POST['stand_id'], $_GET['id'])) {
             $_SESSION['$msg'] = [
-                'css'=>'is-succes',
-                'txt'=>'Votre collecte a été mis a jour'
+                'css' => 'is-succes',
+                'txt' => 'Votre collecte a été mis a jour'
             ];
-        }else {
+        } else {
             $_SESSION['$msg'] = [
-                'css'=>'is-warning',
-                'txt'=>'Cornepute'
-            ];  
+                'css' => 'is-warning',
+                'txt' => 'Cornepute'
+            ];
         }
     }
 }
 
 //var_dump($collects);
 
-require ROOT.'/view/collects/update.view.php';
+require ROOT . '/view/collects/update.view.php';

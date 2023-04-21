@@ -30,7 +30,14 @@
         $sql = 'SELECT * FROM `stands` WHERE stands.id_stand = ?';
         $q = $pdo->prepare($sql);
         $q->execute([$id]);
-        $q->fetchAll(PDO::FETCH_ASSOC);
+        return $q->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function read_stands_colmun_picture_by_id(PDO $pdo, int $id){
+        $sql = 'SELECT stands.picture FROM `stands` WHERE stands.id_stand = ?';
+        $q = $pdo->prepare($sql);
+        $q->execute([$id]);
+        return $q->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function add_stands(PDO $pdo, string $name, string $mail, string $phone, string $place, $logo, $notes){

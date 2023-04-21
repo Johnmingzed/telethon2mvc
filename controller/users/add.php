@@ -4,14 +4,15 @@
  * Contrôle de la provenance depuis public/index.php.
  */
 
- if (!defined('FROM_INDEXES')) {
+if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
 if (isset($_POST['mail'])) {
     if (!empty($_POST['mail']) && filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-        $_POST['firstname'] = empty($_POST['firstname']) ? NULL : ucfirst(strtolower($_POST['firstname']));
-        $_POST['lastname'] = empty($_POST['lastname']) ? NULL : strtoupper($_POST['lastname']);
+        // Formatage et sécurisation des données
+        $_POST['firstname'] = empty($_POST['firstname']) ? NULL : secure_data(ucfirst(strtolower($_POST['firstname'])));
+        $_POST['lastname'] = empty($_POST['lastname']) ? NULL : secure_data(strtoupper($_POST['lastname']));
         $_POST['is_admin'] = isset($_POST['is_admin']) && $_POST['is_admin'] === 'on';
 
         // On vérifie que l'adresse mail est unique
@@ -21,7 +22,7 @@ if (isset($_POST['mail'])) {
         $q->execute([$_POST['mail']]);
         if ($q->fetchColumn() === 0) {
             // Si elle est unique on enregistre l'utilisateur
-            if ($last_user = add_user($pdo, $_POST['mail'], $_POST['firstname'], $_POST['lastname'], $_POST['is_admin'])) {
+            if ($last_user = add_user($pdo, $_POST['mail'], valid_name($_POST['firstname']), valid_name($_POST['lastname']), $_POST['is_admin'])) {
                 $_SESSION['msg'] = [
                     'css' => 'success',
                     'txt' => 'Le nouvel utilisateur a bien été créé sous l\'ID : ' . $last_user . '.'

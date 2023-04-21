@@ -69,3 +69,9 @@ function update_partner(PDO $pdo, array $data)
     $q->execute($data);
     return $data['id_partner'];
 }
+
+function partners_delete(PDO $pdo, int $id){
+    $sql = 'DELETE FROM partners where id_partner = ?';
+    $q = $pdo->prepare($sql);
+    return $q->execute([$id]);
+}

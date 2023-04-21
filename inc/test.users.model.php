@@ -10,22 +10,7 @@ require_once __DIR__ . '/../model/users.model.php';
 require_once __DIR__ . '/../model/collects.model.php';
 require_once __DIR__ . '/../inc/debug.php';
 
-echo 'Test de la fonction collects_total : ';
-var_dump(collects_total($pdo));
-echo collects_total($pdo) . ' € collectés à présent.';
-
-echo '<br>Test de la fonction get_password : ';
-var_dump(get_password($pdo, 'nia1512@gmail.com'));
-
-echo '<br>Test de la fonction fetch_user_by_mail :';
-debug(fetch_user_by_mail($pdo, 'jambonbill@gmail.com'));
-
-echo '<br>Test de la fonction fetch_user_by_id :';
-debug(fetch_user_by_id($pdo, 2));
-
-echo '<br>Test de la fonction users_fetchAll : ';
-debug(users_fetchAll($pdo));
-
+// Tests unitaires
 echo '<br>Test de la fonction add_user : ';
 if($user_id = add_user($pdo, 'toto6@toto.fr', 'Edouard', 'TOTAL')){
     echo 'Utilisateur ' . $user_id . ' ajouté';
@@ -33,9 +18,25 @@ if($user_id = add_user($pdo, 'toto6@toto.fr', 'Edouard', 'TOTAL')){
     echo 'Impossible d\ajouter l\'utilisateur';
 }
 
+echo '<br>Test de la fonction collects_total : ';
+var_dump(collects_total($pdo));
+echo collects_total($pdo) . ' € collectés à présent.';
+
+echo '<br>Test de la fonction get_password : ';
+var_dump(get_password($pdo, 'toto6@toto.fr'));
+
+echo '<br>Test de la fonction fetch_user_by_mail :';
+debug(fetch_user_by_mail($pdo, 'toto6@toto.fr'));
+
+echo '<br>Test de la fonction fetch_user_by_id :';
+debug($user = fetch_user_by_id($pdo, $user_id));
+
+echo '<br>Test de la fonction users_fetchAll : ';
+debug(users_fetchAll($pdo));
+
 echo '<br>Test de la fonction delete_user : ';
 if(delete_user($pdo, $user_id)){
-    echo 'Utilisateur effacé';
+    echo 'Utilisateur '.$user['firstname'].' effacé';
 } else {
     echo 'Impossible d\'effacer l\'utilisateur';
 }

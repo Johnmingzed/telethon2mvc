@@ -15,4 +15,4 @@ $stands = read_stands($pdo);
 $partners = partners_fetchAll($pdo);
 // Appeler la vue
 
-require ROOT.'/view/collects/list.view.php';
+require ROOT . '/view/collects/list.view.php';

@@ -133,6 +133,12 @@ th {
     color: #2B1C1A;
 }
 
+td img{
+    display: block;
+    margin: 0 auto;
+    height: 5rem;
+}
+
 /* Footer */
 
 footer {

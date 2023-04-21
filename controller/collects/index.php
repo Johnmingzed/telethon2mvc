@@ -21,13 +21,13 @@ if (isset($_GET['action'])) {
         case 'update':
             $action = $_GET['action'];
             break;
-        
+
         default:
-            require_once ROOT.'/controller/404/index.php';
+            require_once ROOT . '/controller/404/index.php';
             break;
     }
-}else {
+} else {
     $action = 'list';
 }
 
-require_once __DIR__.'/'.$action.'.php';
+require_once __DIR__ . '/' . $action . '.php';

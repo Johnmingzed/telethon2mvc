@@ -12,6 +12,9 @@ require __DIR__ . '/../inc/conf.php';
 // Activation de debug.php
 require_once ROOT . '/inc/debug.php';
 
+// sécurisation des données
+require_once ROOT . '/inc/security_tools.php';
+
 // Récupération du total
 require_once ROOT . '/model/collects.model.php';
 $total = collects_total($pdo);

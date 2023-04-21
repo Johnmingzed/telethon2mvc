@@ -24,23 +24,23 @@ if ($_GET['id'] == 'new') : ?>
         </div>
         <div class="input mb-3">
             <label class="name" for="lastname">Nom : </label>
-            <input class="form-control" type="text" name="lastname" id="lastname" value="<?= @htmlentities($user['lastname']) ?>">
+            <input class="form-control" type="text" name="lastname" id="lastname" pattern="^[A-Za-zÀ-Ÿ '-]+$" maxlenght="30" value="<?= @htmlentities($user['lastname']) ?>">
         </div>
         <div class="input mb-3">
             <label class="name" for="firstname">Prénom : </label>
-            <input class="form-control" type="text" name="firstname" id="firstname" value="<?= @htmlentities($user['firstname']) ?>">
+            <input class="form-control" type="text" name="firstname" id="firstname" pattern="^[A-Za-zÀ-Ÿ '-]+$" maxlenght="20" value="<?= @htmlentities($user['firstname']) ?>">
         </div>
         <div class="input mb-3">
             <label class="name" for="mail">E-mail : </label>
-            <input class="form-control" type="email" name="mail" id="mail" value="<?= @htmlentities($user['mail']) ?>" required>
+            <input class="form-control" type="email" name="mail" id="mail" pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$" value="<?= @htmlentities($user['mail']) ?>" required>
         </div>
         <div class="password mb-3">
             <span>Mot de passe : </span>
             <?php
             if (!empty($user['password'])) {
-                echo '<span class="pw_active">ACTIF</span>';
+                echo '<span class="success p-2">ACTIF</span>';
             } else {
-                echo '<span class="pw_inactive">INACTIF</span>';
+                echo '<span class="warning p-2">INACTIF</span>';
             }
             ?>
         </div>
