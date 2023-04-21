@@ -21,10 +21,10 @@
 <body>
     <header>
         <div class="container-fluid d-flex justify-content-between logo">
-            <img src="/public/css/img/logo-telethon-babouche.png" alt="" width="20%">
+            <a href="index.php"><img src="/public/css/img/logo-telethon-babouche.png" alt=""></a>
             <h2 class="head-title fw-bold">Actions Telethon</h2>
             <span class="topcompteur">
-                <p><?= str_pad($total, 10, 0, STR_PAD_LEFT) ?> &euro;</p>
+                <p><?= str_pad($total, 5, 0, STR_PAD_LEFT) ?> &euro;</p>
             </span>
         </div>
 
