@@ -14,7 +14,7 @@ ob_start();
 if ($_GET['id'] == 'new') : ?>
     <form action="index.php?controller=users&action=add" method="post" enctype="multipart/form-data">
     <?php else : ?>
-        <form action="index.php?controller=users&action=update&id=<?= @htmlentities($user['id_user']) ?>" method="post" enctype="multipart/form-data">
+        <form action="index.php?controller=users&action=update&id=<?= $user['id_user'] ?>" method="post" enctype="multipart/form-data">
         <?php endif; ?>
         <div class="mb-3">
             <img class="profil_picture" src="../../public/images/<?= $user['picture']; ?>" alt="">

@@ -14,8 +14,9 @@ die; */
 
 if (isset($_GET['id'], $_POST['mail'])) {
     if (!empty($_POST['mail']) && !empty($_GET['id']) && filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
-        $_POST['firstname'] = empty($_POST['firstname']) ? NULL : ucfirst(strtolower($_POST['firstname']));
-        $_POST['lastname'] = empty($_POST['lastname']) ? NULL : strtoupper($_POST['lastname']);
+        // Formatage et sécurisation des données
+        $_POST['firstname'] = empty($_POST['firstname']) ? NULL : valid_name(secure_data(ucfirst(strtolower($_POST['firstname']))));
+        $_POST['lastname'] = empty($_POST['lastname']) ? NULL : valid_name(secure_data(strtoupper($_POST['lastname'])));
         $_POST['is_admin'] = ($_POST['is_admin'] === 'on') ? 1 : 0;
         $_POST['id_user'] = $_GET['id'];
 
