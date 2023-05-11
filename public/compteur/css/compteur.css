@@ -57,34 +57,37 @@ div.logos img {
 */
 
 .numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 2.975rem;
     aspect-ratio: 119/211;
     border-radius: .32rem;
     margin-right: 1.07rem;
     background-image: url("img/chiffres.svg");
     background-size: cover;
-    background-position-y: 40%;
+    background-position-y: 0%;
     background-color: #fff;
 }
 
 .number_5 {
-    background-position-y: 50%;
+    background-position-y: 0%;
 }
 
 .number_4 {
-    background-position-y: 40%;
+    background-position-y: 0%;
 }
 
 .number_3 {
-    background-position-y: 30%;
+    background-position-y: 0%;
 }
 
 .number_2 {
-    background-position-y: 20%;
+    background-position-y: 0%;
 }
 
 .number_1 {
-    background-position-y: 10%;
+    background-position-y: 0%;
 }
 
 .numbers:nth-child(2) {
@@ -93,7 +96,7 @@ div.logos img {
 
 .counter {
     position: relative;
-    color: #fff;
+    color: transparent;
     font-size: 3.75rem;
     display: flex;
     justify-content: center;
@@ -126,7 +129,7 @@ footer.wrapper {
 }
 
 .partners_slide {
-    animation: slide 20s linear infinite;
+    /* animation: slide 5s linear infinite; */
     width: max-content;
     flex-shrink: 0;
     transform: translateX(0);

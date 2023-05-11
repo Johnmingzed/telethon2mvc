@@ -15,11 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $lastname = trim(htmlspecialchars($_POST['lastname']));
             $mail = trim(htmlspecialchars($_POST['mail']));
             $phone = trim(htmlspecialchars($_POST['phone']));
-            $phone = substr_replace($phone, '.', 2, 0);
-            $phone = substr_replace($phone, '.', 5, 0);
-            $phone = substr_replace($phone, '.', 8, 0);
-            $phone = substr_replace($phone, '.', 11, 0);
-            $phone = substr_replace($phone, '.', 14, 0);
             $name = trim(htmlspecialchars($_POST['name']));
             if (add_partner($pdo, $firstname, $lastname, $mail, $phone, $name)) {
                 $_SESSION['msg'] = [

@@ -18,14 +18,18 @@ if (isset($_POST['collect'], $_POST['partner_id'], $_POST['stand_id'])) {
         $collect = empty($_POST['stand_id']) ? NULL : $_POST['stand_id'];
         if (collects_update($pdo, $_POST['collect'], $_POST['partner_id'], $$_POST['stand_id'], $_GET['id'])) {
             $_SESSION['$msg'] = [
-                'css' => 'is-succes',
+                'css' => 'succes',
                 'txt' => 'Votre collecte a été mis a jour'
             ];
+            header('Location: index.php?controller=collects');
+            exit;
         } else {
             $_SESSION['$msg'] = [
-                'css' => 'is-warning',
+                'css' => 'warning',
                 'txt' => 'Cornepute'
             ];
+            header('Location: index.php?controller=collects');
+            exit;
         }
     }
 }

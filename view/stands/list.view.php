@@ -6,7 +6,7 @@
     ob_start();
 ?>
 <a class="btn btn-lg btn-add" href="index.php?controller=stands&action=add">Ajouter</a>
-<table>
+<table class="table table-hover">
     <tr>
         <th>Logo</th>
         <th>Nom du stand</th>

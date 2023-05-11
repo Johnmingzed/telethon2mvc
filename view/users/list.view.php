@@ -13,7 +13,7 @@ ob_start();
 ?>
 
 <a class="btn btn-lg btn-add" href="index.php?controller=users&action=edit&id=new">Ajouter</a>
-<table>
+<table class="table table-hover">
     <?php foreach ($users as $user) : ?>
         <tr>
             <td><img src="../public/images/<?=  $user['picture'] ?>" alt=""></td>
@@ -26,6 +26,6 @@ ob_start();
         </tr>
     <?php endforeach; ?>
 </table>
-
+<script src="../../public/js/users.js"></script>
 <?php $content = ob_get_clean();
 require ROOT . '/view/template/default.php';

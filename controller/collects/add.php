@@ -14,20 +14,26 @@ if (isset($_POST['collect'], $_POST['stand'], $_POST['partner'])) {
 
 
             $_SESSION['msg'] = [
-                'css' => 'is-succes',
+                'css' => 'success',
                 'txt' => 'Votre collecte a été ajoutée'
             ];
+            header('Location: index.php?controller=collects');
+            exit;
         } else {
             $_SESSION['msg'] = [
-                'css' => 'is-warning',
+                'css' => 'warning',
                 'txt' => 'CornePute'
             ];
+            header('Location: index.php?controller=collects');
+            exit;
         }
     } else {
         $_SESSION['msg'] = [
-            'css' => 'is-warning',
+            'css' => 'warning',
             'txt' => 'Merci completer les champs requis'
         ];
+        header('Location: index.php?controller=collects');
+        exit;
     }
 }
 //$collects = collects_fetchAll($pdo) ;

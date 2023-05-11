@@ -118,6 +118,7 @@ main h3 {
 main .btn {
     padding: 5px 35px;
     margin: 2%;
+    cursor:pointer;
 }
 
 main .btn-add {
@@ -126,6 +127,7 @@ main .btn-add {
 
 main .btn-cancel {
     background-color: rgb(178, 66, 66);
+    color:white;
 }
 
 .success {
@@ -147,8 +149,9 @@ td,
 th,
 tr,
 table {
-    border: 1px solid rgb(50, 49, 49);
+    /*border: 1px solid rgb(50, 49, 49);*/
     border-collapse: collapse;
+    
 }
 
 table {
@@ -188,4 +191,23 @@ footer a {
 
 footer a:last-child {
     margin-right: 0;
+}
+
+/* Espace collect  */
+
+.type-de-collect{
+    display: flex;
+}
+
+.space-radio{
+    margin: 1%;
+}
+
+/* Users */
+div#profilePreview{
+    width:200px;
+    background-color: red;
+}
+img#profilepic{
+    max-width: 100%;
 }
