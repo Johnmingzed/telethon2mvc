@@ -1,0 +1,190 @@
+:root {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    font-family: 'Ubuntu', Calibri, sans-serif;
+    font-weight: 400;
+    --wrapper-size: 44.9rem;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("fonts/UbuntuMono-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu Bold";
+    src: url("fonts/UbuntuMono-Bold.ttf");
+}
+
+/*
+*   Header
+*/
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    width: var(--wrapper-size)
+}
+
+.logos {
+    width: 100%;
+    padding: 0;
+    margin-top: 1.6rem;
+    margin-bottom: 0;
+}
+
+div.logos img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+*   Counter
+*/
+
+.numbers {
+    width: 2.975rem;
+    aspect-ratio: 119/211;
+    border-radius: .32rem;
+    margin-right: 1.07rem;
+    background-image: url("img/chiffres.svg");
+    background-size: cover;
+    background-position-y: 40%;
+    background-color: #fff;
+}
+
+.number_5 {
+    background-position-y: 50%;
+}
+
+.number_4 {
+    background-position-y: 40%;
+}
+
+.number_3 {
+    background-position-y: 30%;
+}
+
+.number_2 {
+    background-position-y: 20%;
+}
+
+.number_1 {
+    background-position-y: 10%;
+}
+
+.numbers:nth-child(2) {
+    margin-right: 2.675rem;
+}
+
+.counter {
+    position: relative;
+    color: #fff;
+    font-size: 3.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4.3rem;
+    width: 28.675rem;
+    height: 8.875rem;
+    background-color: #efcb5e;
+    border-radius: .8rem .8rem .8rem 3.25rem;
+}
+
+.counter::after {
+    position: absolute;
+    content: url("img/mascotte_babouche.svg");
+    width: 7.425rem;
+    height: 5.95rem;
+    top: -1.95rem;
+    right: -3.075rem;
+}
+
+/*
+*   Footer
+*/
+
+footer.wrapper {
+    margin-top: 4.5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.partners_slide {
+    animation: slide 20s linear infinite;
+    width: max-content;
+    flex-shrink: 0;
+    transform: translateX(0);
+}
+
+a.partners {
+    color: #6e5551;
+    text-decoration: none;
+    font-family: "Ubuntu Bold", Calibri, sans-serif;
+}
+
+a.partners:not(:last-child)::after {
+    content: " -\00a0";
+}
+
+/*
+*   Animations
+*/
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*
+*   Responsive
+*/
+
+@media screen and (width <=1200px) {
+    :root {
+        font-size: calc(0.625 * 40px);
+    }
+}
+
+@media screen and (width > 1200px) {
+    body{
+        height:100vh;
+    }
+    .wrapper{
+        width:100vw;
+    }
+    .counter{
+        margin:0;
+    }
+    main{
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+    footer.wrapper{
+        margin:0 0 1em 0;
+    }
+    .logos{
+        margin:1em 1em 0 0;
+    }
+}

@@ -11,11 +11,6 @@ if (!defined('FROM_INDEXES')) {
 $title = 'Liste des collectes';
 ob_start();
 ?>
-
-
-
-
-
     <section>
         <h3>Ajouter une collecte</h3>
         <form action="index.php?controller=collects&action=add" method="post">
@@ -24,8 +19,19 @@ ob_start();
                     <label for="collect">Collecte</label>
                     <input type="text" name="collect" id="collect">
                 </div>
+                <div>
+                    <label>Que est l'origine de la collect ?</label>
+                    <div>
+                        <label for="stand">Un stand</label>
+                        <input type="radio" name="type-collect" id="stand" value="Stand">
+                    </div>
+                    <div>
+                        <label for="partner">Un partenaire</label>
+                        <input type="radio" name="type-collect" id="partner" value="Partenaire">
+                    </div>
+                </div>
                 <div class="field">
-                    <label for="stand">Stand</label>
+                    <label for="stand">Voici la liste des stands</label>
                     <select name="stand" id="stand">
                         <option value="">Pas de stand</option>
 
@@ -35,7 +41,7 @@ ob_start();
                     </select>
                 </div>
                 <div class="field">
-                    <label for="partner">Partenaire</label>
+                    <label for="partner">Voici la liste des partenaires</label>
                     <select name="partner" id="partner">
                         <option value="">Pas de partenaire</option>
                         <?php foreach ($partners as $partner) : ?>
@@ -43,10 +49,7 @@ ob_start();
                         <?php endforeach ?>
                     </select>
                 </div>
-
-
             </div>
-
             <div class="submit">
                 <input class="btn btn-lg btn-add" type="submit" value="Enregistrer" >
             </div>
@@ -75,8 +78,6 @@ ob_start();
             <?php endforeach; ?>
         </tbody>
     </table>
-
-
 <?php
 //require_once ROOT . '/inc/debug.php';
 //debug($collect);
