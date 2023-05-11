@@ -8,7 +8,7 @@ if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
-$title = 'Les parternaires';
+$title = 'Parternaires';
 ob_start();
 ?>
 
@@ -19,7 +19,7 @@ ob_start();
         </div>
         <?php unset($_SESSION['msg']); ?>
     <?php endif; ?>
-    <legend>Formulaire d'ajout d'un partenaire</legend>
+    <legend>Nouveau partenaire:</legend>
     <div class="mb-3">
         <label for="name" class="name">Nom du partenaire</label>
         <input type="text" class="form-control" name="name" id="name" value="" placeholder="John Doe's Company" required>

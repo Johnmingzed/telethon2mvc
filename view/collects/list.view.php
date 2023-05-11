@@ -58,14 +58,14 @@ ob_start();
         </form>
     </section>
     
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th class="text-start">Date</th>    
                 <th class="text-end">Collecte</th>                
                 <th>Partenaire</th>
                 <th class="text-start">Stand</th>
-                <th class="text-end">Actions</th>
+                <th class="text-end"><!--Actions--></th>
             </tr>
         </thead>
         <tbody>
@@ -77,8 +77,8 @@ ob_start();
                     <td><?= $collect['partner_name'] ?></td>
                     <td><?= $collect['name'] ?></td>
                     <td class="text-end">
-                        <a href="index.php?controller=collects&action=update&id=<?= $collect['id_collect']; ?>"><i class="bi bi-pencil-square fs-3"></i></a> 
-                    <a href="index.php?controller=collects&action=delete&id=<?= $collect['id_collect']; ?>"><i class="bi bi-trash fs-3"></i></a></td>
+                        <a href="index.php?controller=collects&action=update&id=<?= $collect['id_collect']; ?>"><i class="bi bi-pencil-square fs-4"></i></a> 
+                    <a href="index.php?controller=collects&action=delete&id=<?= $collect['id_collect']; ?>"><i class="bi bi-trash fs-4"></i></a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -8,7 +8,7 @@ if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
-$title = 'Les utilisateurs';
+$title = 'Utilisateurs';
 ob_start();
 ?>
 
@@ -18,10 +18,11 @@ ob_start();
         <tr>
             <td><img src="../public/images/<?=  $user['picture'] ?>" alt=""></td>
             <td><?= @htmlentities($user['firstname']) . ' ' . @htmlentities(strtoupper($user['lastname'])) ?></td>
-            <td><?= @htmlentities($user['mail']) ?></td>
+            <td><?= @htmlentities(strtolower($user['mail'])) ?></td>
             <td><?= ($user['is_admin'] === 1) ? 'Admin' : 'Collaborateur' ?></td>
-            <td><a href="index.php?controller=users&action=edit&id=<?= $user['id_user'] ?>"><i class="bi bi-pencil fs-3"></i></a>&nbsp;
-                <a href="index.php?controller=users&action=delete&id=<?= $user['id_user'] ?>"><i class="bi bi-trash fs-3"></i></a>
+            <td class="text-end">
+                <a href="index.php?controller=users&action=edit&id=<?= $user['id_user'] ?>" title="Modifier"><i class="bi bi-pencil fs-4"></i></a>&nbsp;
+                <a href="index.php?controller=users&action=delete&id=<?= $user['id_user'] ?>" title="Supprimer"><i class="bi bi-trash fs-4"></i></a>
             </td>
         </tr>
     <?php endforeach; ?>

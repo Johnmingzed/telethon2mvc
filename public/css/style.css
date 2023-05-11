@@ -125,8 +125,16 @@ main .btn-add {
     background-color: #8CD50A;
 }
 
+.btn-add:hover {
+    border: 1px solid #007700;
+}
+
 main .btn-cancel {
     background-color: rgb(178, 66, 66);
+    color:white;
+}
+.btn-cancel:hover {
+    font-weight: bold;
     color:white;
 }
 
