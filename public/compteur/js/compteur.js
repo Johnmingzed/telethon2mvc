@@ -1,79 +1,120 @@
 /**
  * Jonathan PAIN-CHAMMING'S travaille là-dessus, demander avant d'essayer de le modifier
  */
-
-let oldSum = 0;
-
 import { FetchTelethon } from "./FetchTelethon.js";
 
-// syntaxe de décomposition d'objet pour assigner directement une valeur à la variable
-let { somme: sumToDisplay } = await FetchTelethon.sum();
-let { partenaires: partners } = await FetchTelethon.partners();
-
-console.log({ sumToDisplay, partners });
-
-const partners_slide = document.querySelector('div.partners_slide');
-const counter = document.querySelector('div.counter');
-
-// Affichage de la liste des partenaires
-partners_slide.replaceChildren();
-partners.forEach(partner => {
-    let balise = document.createElement('a');
-    balise.textContent = partner;
-    balise.setAttribute('class', 'partners');
-    balise.setAttribute('href', '');
-    partners_slide.appendChild(balise);
-});
-
-// Affichage de la somme dans le compteur
-function displaySum() {
-    let arrayedSum = sumToDisplay.toString().padStart(5, '0').split('');
-    let arrayedOldSum = oldSum.toString().padStart(5, '0').split('');
-    console.log({ arrayedOldSum, arrayedSum })
-    arrayedSum.forEach(function (digit, index) {
-        let selector = '.number_' + (index + 1);
-        let number = document.querySelector(selector);
-        let oldNumber = arrayedOldSum[index];
-        animateNumber(number, oldNumber, digit);
-        number.textContent = digit;
-        //number.style.backgroundPositionY = digit + '0%';
+// Fonction d'appel de l'API pour récupérer la somme
+function callSum() {
+    FetchTelethon.sum().then(function (sumData) {
+        sumToDisplay = sumData.somme;
+    }).catch(function (error) {
+        console.error(error); // Gérer les erreurs éventuelles
     });
 }
 
-// Animation du compteur
+// Fonction d'affichage de la somme dans le compteur
+function displaySum() {
+    try {
+        let arrayedSum = sumToDisplay.toString().padStart(5, '0').split('');
+        let arrayedOldSum = oldSum.toString().padStart(5, '0').split('');
+        console.log({ oldSum, sumToDisplay })
+        arrayedSum.forEach(function (digit, index) {
+            let selector = '.number_' + (index + 1);
+            let number = document.querySelector(selector);
+            let oldNumber = arrayedOldSum[index];
+            if (digit > oldNumber) {
+                animateNumber(number, oldNumber, digit);
+                number.textContent = digit;
+            }
+        });
+        oldSum = sumToDisplay;
+        callSum();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Fonction d'animation du compteur
 function animateNumber(target, from, to) {
     let nIntervId;
     // console.log('animation appelée avec les paramêtres', { target, from, to });
     let counter = from;
     function updateNumber() {
         target.style.backgroundPositionY = counter + '0%';
-        // console.log(counter, target.style.backgroundPositionY);
         counter++;
         if (counter > to) {
             clearInterval(nIntervId);
             nIntervId = null;
-            //console.log('sortie de la boucle pour number_' + target);
         }
     }
     nIntervId = setInterval(updateNumber, 200);
 }
 
-// Défilement des partenaires
-function partnersSlide() {
-    let viewportWidth = window.innerWidth;
-    let partners_slideWidth = partners_slide.clientWidth;
-    console.log({ viewportWidth, partners_slideWidth });
-    let slideTranslateStart = (viewportWidth - partners_slideWidth) / 2 + partners_slideWidth;
-    let slideTranslateEnd = ((viewportWidth - partners_slideWidth) / 2 + partners_slideWidth) * -1;
-    let slideSpeed = partners.length * 4;
-    document.documentElement.style.setProperty('--slideTranslateStart', 'translateX(' + slideTranslateStart + 'px)');
-    document.documentElement.style.setProperty('--slideTranslateEnd', 'translateX(' + slideTranslateEnd + 'px)');
-    document.documentElement.style.setProperty('--slideSpeed', slideSpeed + 's');
-    console.log({ slideTranslateEnd, slideTranslateStart, slideSpeed });
+// Fonction d'appel de l'API pour récupérer les partenaires
+function callPartners() {
+    FetchTelethon.partners().then(function (partnersData) {
+        partners = partnersData.partenaires;
+        partnersDisplay();
+    }).catch(function (error) {
+        console.error(error); // Gérer les erreurs éventuelles
+    });
 }
 
-let slider = setInterval(partnersSlide(), 3000);
-let animatedCounter = setInterval(displaySum(),3000);
+// Fonction d'affichage de la liste des partenaires
+function partnersDisplay() {
+    try {
+        partners_slide.replaceChildren();
+        partners.forEach(partner => {
+            let balise = document.createElement('a');
+            balise.textContent = partner;
+            balise.setAttribute('class', 'partners');
+            balise.setAttribute('href', '');
+            partners_slide.appendChild(balise);
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-/* let testNumber = document.querySelector('.number_5');
-let testAnimation = animateNumber(testNumber, 0, 9); */
+// Fonction de défilement des partenaires
+function partnersSlide() {
+    try {
+        let viewportWidth = window.innerWidth;
+        let partners_slideWidth = partners_slide.clientWidth;
+        console.log({ viewportWidth, partners_slideWidth });
+        let slideTranslateStart = (partners_slideWidth + viewportWidth) / 2;
+        let slideTranslateEnd = slideTranslateStart * -1;
+        let slideSpeed = partners.length * 1;
+        document.documentElement.style.setProperty('--slideTranslateStart', 'translateX(' + slideTranslateStart + 'px)');
+        document.documentElement.style.setProperty('--slideTranslateEnd', 'translateX(' + slideTranslateEnd + 'px)');
+        document.documentElement.style.setProperty('--slideSpeed', slideSpeed + 's');
+        console.log({ partners, slideTranslateEnd, slideTranslateStart, slideSpeed });
+        setTimeout(callPartners, slideSpeed * 1000);
+        setTimeout(partnersSlide, slideSpeed * 1000);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+/**
+ * Début du programme
+*/
+
+let oldSum = 0;
+let sumToDisplay;
+callSum();
+
+// syntaxe de décomposition d'objet pour assigner directement une valeur à la variable
+let { partenaires: partners } = await FetchTelethon.partners();
+
+console.log({ sumToDisplay, partners });
+
+const partners_slide = document.querySelector('div.partners_slide');
+//const counter = document.querySelector('div.counter');
+
+
+// Premier affichage de la somme à partir de 0
+let animatedCounter = displaySum();
+let slider = partnersSlide();
+animatedCounter = setInterval(displaySum, 10000);
+console.log({ slider, animatedCounter }, 'Ensemble du code initialisé');

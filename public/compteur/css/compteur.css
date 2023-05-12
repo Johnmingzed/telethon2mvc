@@ -6,7 +6,7 @@
     font-weight: 400;
     --wrapper-size: 44.9rem;
     --slideTranslateStart: translateX(100%);
-    --slideTranslateEnd: translateX(-100%);
+    --slideTranslateEnd: translateX(100%);
     --slideSpeed: 15s;
 }
 
@@ -72,25 +72,14 @@ div.logos img {
     background-size: cover;
     background-position-y: 0%;
     background-color: #fff;
+    transition: background-position-y 150ms ease;
 }
 
+.number_1,
+.number_2,
+.number_3,
+.number_4,
 .number_5 {
-    background-position-y: 0%;
-}
-
-.number_4 {
-    background-position-y: 0%;
-}
-
-.number_3 {
-    background-position-y: 0%;
-}
-
-.number_2 {
-    background-position-y: 0%;
-}
-
-.number_1 {
     background-position-y: 0%;
 }
 
