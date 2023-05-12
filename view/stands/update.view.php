@@ -43,7 +43,7 @@
         <div class="input mb-3">
             <?php foreach($listStands as $listStand) : ?>
                 <label for="note">Commentaire</label>
-                <textarea class="form-control" name="notes" id="notes" cols="30" rows="10"><?= $listStand['notes'] ?></textarea> 
+                <textarea class="form-control" name="notes" id="notes" cols="30"><?= $listStand['notes'] ?></textarea> 
             <?php endforeach ; ?>
         </div>
         <div class="input mb-3">

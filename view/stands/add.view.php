@@ -10,15 +10,15 @@
         <legend>Formulaire d'ajout d'un stand</legend>
         <div class="input mb-3">
             <label  for="name">Nom du stands</label>
-            <input class="form-control" type="text" id="name" name="name"  value="" required>
+            <input class="form-control" type="text" id="name" name="name" required>
         </div>
         <div class="input mb-3">
             <label for="place">Localisation</label>
-            <input class="form-control" type="text" id="place" name="place" value="" required>
+            <input class="form-control" type="text" id="place" name="place" required>
         </div>
         <div class="input mb-3">
             <label for="mail">Contact</label>
-            <input class="form-control" type="email" id="mail" name="mail" value="" required> 
+            <input class="form-control" type="email" id="mail" name="mail" required> 
         </div>
         <div class="input mb-3">
             <label for="phone">Téléphone</label>
@@ -30,7 +30,7 @@
             <input type="file" id="picture" name="picture"> 
         <div class="input mb-3">
             <label for="note">Commentaire</label>
-            <textarea class="form-control" name="notes" id="notes" cols="30" rows="10"></textarea> 
+            <textarea class="form-control" name="notes" id="notes" cols="30"></textarea> 
         </div>
         <div class="text-center">
             <input class="btn btn-lg btn-add" type="submit" value="Ajouter">

@@ -43,6 +43,8 @@ let viewportWidth = window.innerWidth;
 let partners_slideWidth = partners_slide.clientWidth;
 console.log({ viewportWidth, partners_slideWidth });
 let slideTranslateStart = (viewportWidth - partners_slideWidth) / 2 + partners_slideWidth;
-let slideTranslateEnd = (viewportWidth - partners_slideWidth) / 2 + partners_slideWidth;
+let slideTranslateEnd = ((viewportWidth - partners_slideWidth) / 2 + partners_slideWidth) * -1;
+console.log({ slideTranslateEnd, slideTranslateStart });
 let slideSpeed;
-
+document.documentElement.style.setProperty('--slideTranslateStart', 'translateX(' + slideTranslateStart + 'px)');
+document.documentElement.style.setProperty('--slideTranslateEnd', 'translateX(' + slideTranslateEnd + 'px)');

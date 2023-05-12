@@ -5,6 +5,8 @@
     font-family: 'Ubuntu', Calibri, sans-serif;
     font-weight: 400;
     --wrapper-size: 44.9rem;
+    --slideTranslateStart: translateX(100%);
+    --slideTranslateEnd: translateX(-100%);
 }
 
 @font-face {
@@ -129,7 +131,7 @@ footer.wrapper {
 }
 
 .partners_slide {
-    /* animation: slide 5s linear infinite; */
+    animation: slide 15s linear infinite;
     width: max-content;
     flex-shrink: 0;
     transform: translateX(0);
@@ -151,11 +153,11 @@ a.partners:not(:last-child)::after {
 
 @keyframes slide {
     0% {
-        transform: translateX(100%);
+        transform: var(--slideTranslateStart);
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: var(--slideTranslateEnd);
     }
 }
 
