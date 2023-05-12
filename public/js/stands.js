@@ -1,13 +1,12 @@
 /**
- * @author Pierre
+ * @author Jonathan
  */
 // ===============
 // Espace modification
-// Modifier par : Jonathan Courtois le 11/05/2023 à 16h10
-// Modifier par : Jonathan Courtois le 12/05/2023 à 08h21
+
 // ===============
 //watch changes in picture file input
-let f=document.getElementById('picture');//picture file input
+let f = document.getElementById('picture');//picture file input
 
 if(f){
     
@@ -17,7 +16,7 @@ if(f){
         reader.onload = function (e) {
             var dataURL = e.target.result;                
             console.log(dataURL);
-            document.getElementById('profilepic').src=dataURL;
+            document.getElementById('standsPic').src=dataURL;
         };
         
         reader.readAsDataURL(file);
@@ -25,4 +24,4 @@ if(f){
     };
 }
 
-console.log('users.js');
+console.log('stands.js');

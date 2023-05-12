@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?> - Téléthon La Couronne</title>
-    <link rel="shortcut icon" href="img/mascotte_babouche.svg" type="image/svg">
+    <link rel="shortcut icon" href="../../public/css/img/mascotte_babouche.svg" type="image/svg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +22,10 @@
 
 <body>
     <header>
-        <div class="container-fluid d-flex justify-content-between align-items-center logo">
-            <a href="index.php"><img src="/public/css/img/logo-telethon-babouche.png" alt=""></a>
+        <div class="container d-flex justify-content-between align-items-center logo">
+            <a href="index.php" class="d-none d-sm-block"><img src="/public/css/img/logo-telethon-babouche.png" alt=""></a>
             <h2 class="m-0 fw-bold">Actions Telethon</h2>
-            <div class="topcompteur">
+            <div class="topcompteur d-none d-md-block">
                 <div class="cartouche">
                     <p class="total"><?= str_pad($total, 5, 0, STR_PAD_LEFT) ?></p>
                     <p class="euro">&euro;</p>
@@ -36,9 +36,12 @@
             </span> -->
         </div>
 
+
+    
         <nav class="container-fluid">
             <ul class="container d-flex justify-content-between main-menu">
-                <li class="is-active ft-bold"><a href="index.php?controller=collects">Collectes</a></li>
+                <!--is-active ft-bold-->
+                <li class="fw-bold"><a href="index.php?controller=collects">Collectes</a></li>
                 <li class="fw-bold"><a href="index.php?controller=partners">Partenaires</a></li>
                 <li class="fw-bold"><a href="index.php?controller=stands">Stands</a></li>
                 <li class="fw-bold"><a href="index.php?controller=users">Utilisateurs</a></li>
@@ -46,7 +49,7 @@
             </ul>
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="userMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-person-circle fs-3"></i>
+                    <i class="bi bi-person-circle fs-3" style="color:#f0f0f0"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuDropdown">
                     <li><a class="dropdown-item" href="#">Mon profil</a></li>
@@ -54,10 +57,11 @@
                 </ul>
             </div>
         </nav>
+    
     </header>
 
     <main class="container">
-        <h3 class="page-title fw-bold fst-italic"><?= $title ?></h3>
+        <h3 class="page-title fw-bold"><?= $title ?></h3>
         <?php if (isset($_SESSION['msg'])) : ?>
             <div class="msg <?= $_SESSION['msg']['css'] ?>">
                 <?= $_SESSION['msg']['txt'] ?>

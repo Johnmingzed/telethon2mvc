@@ -16,9 +16,9 @@ if ($_GET['id'] == 'new') : ?>
     <?php else : ?>
         <form action="index.php?controller=partners&action=update?>" method="post" enctype="multipart/form-data">
         <?php endif; ?>
-        <div class="input mb-3">
             <label class="name" for="lastname">Nom : </label>
             <input class="form-control" type="text" name="lastname" id="lastname" value="<?= @htmlentities($partner['lastname']) ?>">
+            <small>un message contextuel</small>
         </div>
         <div class="input mb-3">
             <label class="name" for="firstname">Prénom : </label>
@@ -30,7 +30,7 @@ if ($_GET['id'] == 'new') : ?>
         </div>
         <div class="text-center">
             <input type="submit" class="btn btn-lg btn-add" value="<?= @($_GET['id'] == 'new') ? 'Ajouter' : 'Modifier' ?>">
-            <a class="btn btn-lg btn-cancel" href="index.php?controller=partnerss&action=list">Annuler</a>
+            <a class="btn btn-lg btn-cancel" href="index.php?controller=partners&action=list">Annuler</a>
         </div>
         </form>
 

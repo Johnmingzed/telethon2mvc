@@ -21,4 +21,4 @@ if (isset($_GET['id'])) {
      ];
    }
    $_SESSION['msg'] = $msg;
-   header('Location: index.php');
+   header('Location: index.php/controller?=partners');

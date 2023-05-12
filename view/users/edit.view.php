@@ -8,7 +8,7 @@ if (!defined('FROM_INDEXES')) {
     die('Acces Refusé');
 }
 
-$title = 'Utilisateurs';
+$title = 'Utilisateur';
 ob_start();
 
 if ($_GET['id'] == 'new') : ?>
@@ -46,18 +46,20 @@ if ($_GET['id'] == 'new') : ?>
         <input class="form-control" type="email" name="mail" id="mail" pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$" value="<?= @htmlentities($user['mail']) ?>" required>
     </div>
     <div class="password mb-3">
-        <span>Mot de passe : </span>
         <?php
         if (!empty($user['password'])) {
-            echo '<span class="success p-2">ACTIF</span>';
+            //OSEF
+            //echo '<span class="success p-2">ACTIF</span>';
         } else {
-            echo '<span class="warning p-2">INACTIF</span>';
+            
+            echo '<span class="warning p-2">Mot de passe inactif</span>';
         }
         ?>
     </div>
     <div class="id_admin">
+        <input type="checkbox" name="is_admin" id="is_admin" <?= @($user['is_admin'] === 1) ? 'checked' : '' ?>>    
         <label for="id_admin">Administrateur </label>
-        <input type="checkbox" name="is_admin" id="is_admin" <?= @($user['is_admin'] === 1) ? 'checked' : '' ?>>
+        
     </div>
     <div class="text-center">
         <input type="submit" class="btn btn-lg btn-add" value="<?= @($_GET['id'] == 'new') ? 'Ajouter' : 'Modifier' ?>">

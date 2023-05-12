@@ -7,6 +7,7 @@
     --wrapper-size: 44.9rem;
     --slideTranslateStart: translateX(100%);
     --slideTranslateEnd: translateX(-100%);
+    --slideSpeed: 15s;
 }
 
 @font-face {
@@ -60,6 +61,7 @@ div.logos img {
 
 .numbers {
     display: flex;
+    color: transparent;
     align-items: center;
     justify-content: center;
     width: 2.975rem;
@@ -98,7 +100,7 @@ div.logos img {
 
 .counter {
     position: relative;
-    color: transparent;
+    color: #fff;
     font-size: 3.75rem;
     display: flex;
     justify-content: center;
@@ -131,7 +133,7 @@ footer.wrapper {
 }
 
 .partners_slide {
-    animation: slide 15s linear infinite;
+    animation: slide var(--slideSpeed) linear infinite;
     width: max-content;
     flex-shrink: 0;
     transform: translateX(0);

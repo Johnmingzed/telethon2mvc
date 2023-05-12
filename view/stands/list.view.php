@@ -10,7 +10,7 @@
     <thead>
         
         <th class="text-start">Nom du stand</th>
-        <th class="text-start">Localisation</th>
+        <th class="text-start">Adresse</th>
         <th><!--Logo--></th>
         <th><!--Action--></th>
     </thead>

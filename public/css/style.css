@@ -138,6 +138,10 @@ main .btn-cancel {
     color:white;
 }
 
+.msg{
+    padding:1rem;
+}
+
 .success {
     background-color: #8CD50A;
     text-align: center;
@@ -197,6 +201,11 @@ footer a {
     margin-right: 1rem;
 }
 
+footer a:hover {
+    color: #F0F0F0;
+    text-decoration: underline;
+}
+
 footer a:last-child {
     margin-right: 0;
 }
@@ -211,6 +220,49 @@ footer a:last-child {
     margin: 1%;
 }
 
+.section-collect{
+    width: 100%;
+}
+
+.collect-form{
+    width: 100%;
+    background-color: #038591;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+.collect-form .fields{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    align-items: center;
+}
+
+/* Stands */
+
+#space-contact-stand, #space-picture-stand{
+    width: 100%;
+    display: flex;
+}
+
+#space-contact-stand .fields-contact{
+    width: 100%;
+}
+
+#space-picture-stand .fields-picture{
+    width: 25%;
+}
+
+#telephone{
+    margin-left: 2.5%;
+}
+
+#e-mail{
+    margin-right: 2.5%;
+}
+
+
+
 /* Users */
 div#profilePreview{
     width:200px;
@@ -219,3 +271,9 @@ div#profilePreview{
 img#profilepic{
     max-width: 100%;
 }
+
+.imgsquare {
+    object-fit: cover;
+    width: 64px;
+    height: 64px;
+  }

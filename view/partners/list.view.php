@@ -37,7 +37,5 @@ ob_start();
     <?php endforeach; ?>
 </table>
 
-<script src="../../public/js/partner.js"></script>
-
 <?php $content = ob_get_clean();
 require ROOT . '/view/template/default.php';

@@ -1,0 +1,33 @@
+============
+Note de JC :
+
+--------
+Espace collectes
+- retravailler l'apperence du formulaire d'ajout de collecte
+- Ajouter une condition pour dire qu'il faut absolument un stand ou un partenaire qui fait un don : Fait
+--------
+Espace stand:
+- Dans views update "stand" problème d'imbrication  de div : Fait
+- Mettre un seul titre : Fait
+- Mettre sur une seule ligne contact et Téléphone : Fait
+- Mettre la preview sur le champ logo : Fait
+
+--------
+Espace Users
+- Etat du mot de passe, mettre que ceux qui n'ont pas de mot de passe 
+- Etat du mot de passe, le voir d'un coup d'oeil sur la liste users
+
+============
+Note de Pierre 
+
+============
+Note de Anh
+
+============
+Note de Jonathan 2
+
+============
+Note de Jordan
+
+============
+Note de Jérémy

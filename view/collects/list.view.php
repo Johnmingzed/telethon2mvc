@@ -8,10 +8,10 @@ if (!defined('FROM_INDEXES')) {
 //debug($_SESSION['msg']);
 
 
-$title = 'Liste des collectes';
+$title = 'Collectes';
 ob_start();
 ?>
-    <section>
+    <section id="section-collect">
         <h3>Ajouter une collecte</h3>
         <form action="index.php?controller=collects&action=add" method="post" class="collect-form">
             <div class="fields">
@@ -20,7 +20,7 @@ ob_start();
                     <input type="number" name="collect" id="collect" min=1 autocomplete="off" required>
                 </div>
                 <div class="field">
-                    <label>Quel est l'origine de la collect ?</label>
+                    <label>Quel est l'origine de la collecte ?</label>
                     <div class="type-de-collect">
                         <div class="space-radio stand-radio">
                             <label for="stand">Un stand</label>
@@ -33,7 +33,6 @@ ob_start();
                     </div>
                 </div>
                 <div class="field">
-                    <label for="stand">Voici la liste des stands</label>
                     <select name="stand" id="select-stand">
                         <option value="">Pas de stand</option>
 
@@ -43,7 +42,6 @@ ob_start();
                     </select>
                 </div>
                 <div class="field">
-                    <label for="partner">Voici la liste des partenaires</label>
                     <select name="partner" id="select-partner">
                         <option value="">Pas de partenaire</option>
                         <?php foreach ($partners as $partner) : ?>
@@ -51,9 +49,9 @@ ob_start();
                         <?php endforeach ?>
                     </select>
                 </div>
-            </div>
-            <div class="submit">
-                <input class="btn btn-lg btn-add" type="submit" value="Enregistrer" >
+                <div class="submit">
+                    <input class="btn btn-lg btn-add form-control" type="submit" value="Enregistrer" >
+                </div>
             </div>
         </form>
     </section>

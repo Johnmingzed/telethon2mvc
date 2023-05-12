@@ -6,7 +6,7 @@ if (!defined('FROM_INDEXES')) {
 
 
 if (isset($_POST['collect'], $_POST['stand'], $_POST['partner'])) {
-    if (!empty($_POST['collect'])) {
+    if (!empty($_POST['collect']) && !empty($_POST['stand']) || !empty($_POST['partner'])) {
         $stand_id = empty($_POST['stand']) ? NULL : $_POST['stand'];
         $partner_id = empty($_POST['partner']) ? NULL : $_POST['partner'];
 
