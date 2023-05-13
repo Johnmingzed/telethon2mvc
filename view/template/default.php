@@ -13,9 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Raleway&family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="/js/compteur.js" defer></script>
-    <script src="<?php require_once ROOT.'/public/js/modale.js' ?>" defer></script>
-    
+    <script src="../../public/js/compteur.js" defer></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../public/css/style.css">
 </head>
@@ -31,13 +29,13 @@
                     <p class="euro">&euro;</p>
                 </div>
             </div>
-<!--             <span class="topcompteur">
+            <!--             <span class="topcompteur">
                 <p><?= str_pad($total, 5, 0, STR_PAD_LEFT) ?> &euro;</p>
             </span> -->
         </div>
 
 
-    
+
         <nav class="container-fluid">
             <ul class="container d-flex justify-content-between main-menu">
                 <!--is-active ft-bold-->
@@ -57,7 +55,7 @@
                 </ul>
             </div>
         </nav>
-    
+
     </header>
 
     <main class="container">

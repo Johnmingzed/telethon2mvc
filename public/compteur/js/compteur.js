@@ -1,6 +1,9 @@
 /**
  * Jonathan PAIN-CHAMMING'S travaille là-dessus, demander avant d'essayer de le modifier
+ *
+ * Revoir les fonctions d'affichage des partenaires qui fait un peu n'importe quoi
  */
+
 import { FetchTelethon } from "./FetchTelethon.js";
 
 // Fonction d'appel de l'API pour récupérer la somme
@@ -24,8 +27,17 @@ function displaySum() {
             let oldNumber = arrayedOldSum[index];
             if (digit > oldNumber) {
                 animateNumber(number, oldNumber, digit);
-                number.textContent = digit;
+            } else if (digit < oldNumber) {
+                // console.log('on va à 10');
+                animateNumber(number, oldNumber, 10);
+                let wait = (10 - oldNumber) * 200;
+                setTimeout(() => {
+                    //console.log('on va à', digit);
+                    animateNumber(number, 0, digit);
+                }, wait);
+                // console.log('Waited :', wait);
             }
+            number.textContent = digit;
         });
         oldSum = sumToDisplay;
         callSum();
